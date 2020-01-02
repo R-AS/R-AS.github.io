@@ -1,21 +1,53 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
+import { makeStyles } from '@material-ui/core/styles'
+import Layout from '../components/common/Layout'
+import SEO from '../components/common/Seo'
+import Image from '../components/common/Image'
+import SpanList from '../components/common/SpanList'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const useStyles = makeStyles(theme => ({
+  image: {
+    maxWidth: '400px',
+    margin: '10% auto',
+    marginBottom: '1.45rem',
+  },
+  h1: {
+    padding: '20px 0',
+    textAlign: 'center',
+  }
+}))
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const classes = useStyles()
+  return (
+    <Layout>
+      <SEO title='Home' />
+      <div className={classes.image}>
+        <Image data={data} />
+        <h1 className={classes.h1}>
+          {data.site.siteMetadata.author}
+        </h1>
+      </div>
+      <SpanList />
+    </Layout>
+  )
+}
 
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        author
+      }
+    }
+    placeholderImage: file(relativePath: {eq: "images/common/avatar.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 export default IndexPage

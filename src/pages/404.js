@@ -1,14 +1,40 @@
-import React from "react"
+import React from 'react'
+import { graphql } from 'gatsby'
+import { makeStyles } from '@material-ui/core'
+import Layout from '../components/common/Layout'
+import SEO from '../components/common/Seo'
+import Image from '../components/common/Image'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+const useStyles = makeStyles(theme => ({
+  image: {
+    maxWidth: '300px',
+    margin: 'auto',
+  }
+}))
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const NotFoundPage = ({ data }) => {
+  const classes = useStyles()
 
+  return (
+    <Layout>
+      <SEO title='404: Not found' />
+      <h1>NOT FOUND</h1>
+      <div className={classes.image}>
+        <Image data={data} />
+      </div>
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query {
+    placeholderImage: file(relativePath: { eq: "images/common/gatsby-astronaut.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 export default NotFoundPage
