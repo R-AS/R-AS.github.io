@@ -1,82 +1,89 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { makeStyles } from '@material-ui/core/styles'
-import { Card, CardActionArea, CardMedia, CardContent, CardActions, Typography } from '@material-ui/core'
+import {
+  Card, CardActionArea, CardMedia, CardContent,
+  CardActions, Typography, Grid,
+} from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {
     display: 'flex',
     width: '100%',
-    height: '80vh',
+    minHeight: '80vh',
     justifyContent: 'center',
   },
   list: {
-    display: 'grid',
     margin: 'auto',
     width: '80vw',
-    height: '50vh',
-    gridTemplateColumns: 'repeat(4, 23.5%)',
-    gridTemplateRows: 'repeat(2, 45%)',
-    gridGap: '3% 2%',
+    minHeight: '50vh',
   },
-  card: {
-    maxWidth: 345,
-  },
+  card: {},
   media: {
     height: 120,
   },
   title: {
     paddingBottom: 0,
+    fontSize: '.9rem',
   },
   footer: {
-    width: '50%',
+    width: '100%',
     fontSize: '.9rem',
+  },
+  link: {
+    textDecoration: 'none',
   },
 })
 
-function CartItem({ type, title, date }) {
+function CartItem({ title, date, slug }) {
   const classes = useStyles()
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image='/static/images/cards/contemplative-reptile.jpg'
-          title='Contemplative Reptile'
-        />
-        <CardContent className={classes.title}>
-          <Typography variant='h6' component='div'>
-            {title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Typography className={classes.footer} gutterBottom variant='caption' component='span'>
-          {type}
-        </Typography>
-        <Typography  className={classes.footer} align='right' gutterBottom variant='caption' component='span'>
-          {date}
-        </Typography>
-      </CardActions>
-    </Card>
+    <Grid item xs={12} sm={3}>
+      <Link className={classes.link} to={`/blogs${slug}`}>
+        <Card className={classes.card}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image='/static/images/cards/contemplative-reptile.jpg'
+              title='Contemplative Reptile'
+            />
+            <CardContent className={classes.title}>
+              <Typography variant='h6' component='div'>
+                {title}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Typography  className={classes.footer} align='right' gutterBottom variant='caption' component='span'>
+              {date}
+            </Typography>
+          </CardActions>
+        </Card>
+      </Link>
+    </Grid>
   )
 }
 
-function CardList({ type, list }) {
+function CardList({ list }) {
   const classes = useStyles()
   return (
     <div className={classes.root}>
-      <div className={classes.list}>
+      <Grid 
+        className={classes.list}
+        container
+        spacing={2}
+      >
         {
           list.map((n, m) => (
             <CartItem
               key={m}
-              type={type}
               title={n.node.frontmatter.title}
               date={n.node.frontmatter.date}
+              slug={n.node.fields.slug}
             />
           ))
         }
-      </div>
+      </Grid>
     </div>
   )
 }

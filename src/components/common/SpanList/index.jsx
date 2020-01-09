@@ -15,6 +15,9 @@ const useStyles = makeStyles(theme => ({
   chip: {
     margin: theme.spacing(0.5),
   },
+  link: {
+    textDecoration: 'none',
+  },
 }))
 
 const SpanList = () => {
@@ -33,12 +36,11 @@ const SpanList = () => {
       }
     `
   )
-  
   return (
     <div className={classes.root}>
       {
         data.allDirectory.edges.map((n, m) => (
-          <Link to={`/preview`} key={m}>
+          <Link className={classes.link} to={`/blogs/${n.node.base}`} key={m}>
             <Chip
               label={n.node.base}
               className={classes.chip}

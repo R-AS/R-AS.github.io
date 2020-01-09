@@ -8,7 +8,11 @@ import Image from '../components/common/Image'
 const useStyles = makeStyles(theme => ({
   image: {
     maxWidth: '300px',
-    margin: 'auto',
+    margin: '10% auto',
+  },
+  title: {
+    marginTop: '50px',
+    textAlign: 'center',
   }
 }))
 
@@ -18,10 +22,10 @@ const NotFoundPage = ({ data }) => {
   return (
     <Layout>
       <SEO title='404: Not found' />
-      <h1>NOT FOUND</h1>
       <div className={classes.image}>
         <Image data={data} />
       </div>
+      <h1 className={classes.title}>NOT FOUND</h1>
     </Layout>
   )
 }

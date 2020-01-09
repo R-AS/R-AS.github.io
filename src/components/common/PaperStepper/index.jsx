@@ -1,23 +1,29 @@
-import React, { useState } from 'react'
-import { makeStyles, useTheme } from '@material-ui/core'
-import { MobileStepper, Button } from '@material-ui/core'
+import React, { useState, useEffect } from 'react'
+import {
+  makeStyles, useTheme, MobileStepper, Button,
+} from '@material-ui/core'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
   root: {
     margin: 'auto',
-    width: '70vh',
+    width: '70vw',
   },
   stepper: {
     background: '#fff',
   },
 }))
-const list = [1, 2, 3, 4, 5]
-function PaperStepper () {
+
+function PaperStepper (props) {
+  const { pageCount, skipFn = false } = props
   const theme = useTheme()
   const classes = useStyles()
   const [activeStep, setActiveStep] = useState(0)
-  const maxSteps = list.length;
+  const maxSteps = pageCount;
+
+  useEffect(() => {
+    if (skipFn) skipFn(activeStep + 1)
+  }, [activeStep])
 
   const handleNext = () => {
     setActiveStep(preActiveStep => preActiveStep + 1)

@@ -1,8 +1,9 @@
 import React from 'react'
-import { AppBar, Toolbar, Typography, Box } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, Box, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import classNames from 'classnames'
 import { Link } from 'gatsby'
+import SearchBar from '../SearchBar'
 import PropTypes from 'prop-types'
 
 const useStyles = makeStyles(theme => ({
@@ -16,6 +17,9 @@ const useStyles = makeStyles(theme => ({
   font: {
     color: '#fff',
     textDecoration: 'none',
+  },
+  searchBarWrap: {
+    marginRight: '5%',
   }
 }))
 
@@ -35,7 +39,11 @@ const Header = ({ siteTitle }) => {
             </Link>
           </Typography>
         </Box>
-        
+        <Grid item xs={5} sm={3} md={2}>
+          <div className={classes.searchBarWrap}>
+            <SearchBar />
+          </div>
+        </Grid>
         <Typography>
           <Link
             className={classNames(classes.span, classes.font)}
