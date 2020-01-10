@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
   searchBarWrap: {
     marginRight: '5%',
+    height: 40
   }
 }))
 

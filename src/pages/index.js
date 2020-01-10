@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 
 const IndexPage = ({ data }) => {
   const classes = useStyles()
-  console.log(data)
+
   return (
     <Layout>
       <SEO title='Home' />
@@ -46,18 +46,6 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    allMarkdownRemark {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-          }
         }
       }
     }
