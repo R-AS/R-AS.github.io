@@ -81,8 +81,12 @@ export default () => {
 
   const handleChange = ({ target: { value } }) => {
     if (value.trim().length) {
-      const filterKeyword = titleList.filter((n) => {
-        return n.node.frontmatter.title.indexOf(value.trim()) >= 0
+      // const filterKeyword = titleList.filter((n) => {
+      //   return n.node.frontmatter.title.indexOf(value.trim()) >= 0
+      // })
+      const reg = new RegExp(`.*?${value}.*`, 'i')
+      const filterKeyword = titleList.filter(n => {
+        return reg.test(n.node.frontmatter.title)
       })
       setKeywordArr(filterKeyword)
     } else {

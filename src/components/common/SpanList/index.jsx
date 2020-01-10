@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
   },
   chip: {
     margin: theme.spacing(0.5),
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   link: {
     textDecoration: 'none',
@@ -46,7 +49,6 @@ const SpanList = () => {
               className={classes.chip}
             />
           </Link>
-          
         ))
       }
     </div>

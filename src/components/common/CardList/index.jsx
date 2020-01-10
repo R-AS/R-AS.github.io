@@ -32,10 +32,10 @@ const useStyles = makeStyles({
   },
   link: {
     textDecoration: 'none',
-  },
+  }
 })
 
-function CartItem({ title, date, slug }) {
+function CartItem({ title, date, thumbnail, slug }) {
   const classes = useStyles()
   return (
     <Grid item xs={12} sm={3}>
@@ -44,7 +44,7 @@ function CartItem({ title, date, slug }) {
           <CardActionArea>
             <CardMedia
               className={classes.media}
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image={`/thumbnail/${thumbnail}`}
               title='Contemplative Reptile'
             />
             <CardContent className={classes.title}>
@@ -79,6 +79,7 @@ function CardList({ list }) {
               key={m}
               title={n.node.frontmatter.title}
               date={n.node.frontmatter.date}
+              thumbnail={n.node.frontmatter.thumbnail}
               slug={n.node.fields.slug}
             />
           ))

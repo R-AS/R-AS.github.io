@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/',
   siteMetadata: {
     title: 'R-AS Blog',
     description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
@@ -12,10 +13,46 @@ module.exports = {
         path: `${__dirname}/src`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-material-ui',
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+          // disableAutoprefixing: false,
+          disableMinification: false,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-table-of-contents',
+            options: {
+              exclude: 'Table of Contents',
+              tight: false,
+              fromHeading: 1,
+              toHeading: 6,
+            }
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
+          },
+          'gatsby-remark-heading-slug',
+        ]
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    `gatsby-transformer-remark`,
     'gatsby-plugin-emotion',
     {
       resolve: 'gatsby-plugin-manifest',
