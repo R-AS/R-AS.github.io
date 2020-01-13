@@ -47,6 +47,7 @@ module.exports = {
             },
           },
           'gatsby-remark-heading-slug',
+          'gatsby-remark-reading-time',
         ]
       }
     },

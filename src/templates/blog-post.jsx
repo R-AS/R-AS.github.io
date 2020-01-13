@@ -28,6 +28,7 @@ export default ({ data }) => {
         <h1>{post.frontmatter.title}</h1>
         <p className={classes.paragraph}>{post.frontmatter.date}</p>
         <p className={classNames(classes.paragraph, classes.type)}>{post.frontmatter.type}</p>
+        <p className={classNames(classes.paragraph, classes.type)}>{post.fields.readingTime.text}</p>
         <div className={classes.content} dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
@@ -43,6 +44,11 @@ export const query = graphql`
         type
       }
       excerpt
+      fields {
+        readingTime {
+          text
+        }
+      }
     }
   }
 `
