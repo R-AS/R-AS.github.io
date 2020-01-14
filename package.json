@@ -38,7 +38,8 @@
     "gh-pages": "^2.2.0",
     "markdownlint": "^0.18.0",
     "prettier": "^1.19.1",
-    "prismjs": "^1.18.0"
+    "prismjs": "^1.18.0",
+    "remark-grid-tables": "^1.7.1"
   },
   "keywords": [
     "gatsby"
