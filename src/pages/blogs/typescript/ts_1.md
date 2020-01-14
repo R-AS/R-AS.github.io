@@ -4,7 +4,7 @@ date: '2020-01-10'
 thumbnail: 'typescript/index.png'
 type: 'typescript'
 ---
-#### 目录
+### 目录
 ```toc
 ```
 ---
