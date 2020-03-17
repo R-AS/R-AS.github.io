@@ -1,1 +1,1 @@
-{"data":{"allDirectory":{"totalCount":3,"edges":[{"node":{"base":"javascript"}},{"node":{"base":"typescript"}},{"node":{"base":"nodejs"}}]}}}
+{"data":{"allDirectory":{"totalCount":4,"edges":[{"node":{"base":"javascript"}},{"node":{"base":"nodejs"}},{"node":{"base":"typescript"}},{"node":{"base":"react"}}]}}}
