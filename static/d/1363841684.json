@@ -1,1 +1,1 @@
-{"data":{"allDirectory":{"totalCount":4,"edges":[{"node":{"base":"javascript"}},{"node":{"base":"nodejs"}},{"node":{"base":"typescript"}},{"node":{"base":"react"}}]}}}
+{"data":{"allDirectory":{"totalCount":5,"edges":[{"node":{"base":"javascript"}},{"node":{"base":"nodejs"}},{"node":{"base":"typescript"}},{"node":{"base":"react"}},{"node":{"base":"redux-tool-kit"}}]}}}
