@@ -46,6 +46,23 @@ module.exports = {
               noInlineHighlight: false,
             },
           },
+          {
+            resolve: 'gatsby-remark-emojis',
+            options: {
+              active: true,
+              class: 'emoji-icon',
+              escapeCharacter: '#',
+              size: 64,
+              styles: {
+                display: 'inline',
+                margin: '0',
+                'margin-top': '1px',
+                position: 'relative',
+                top: '5px',
+                width: '25px'
+              }
+            }
+          },
           'gatsby-remark-heading-slug',
           'gatsby-remark-reading-time',
           'gatsby-remark-grid-tables',
