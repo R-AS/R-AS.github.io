@@ -1,1 +1,1 @@
-{"data":{"allDirectory":{"totalCount":6,"edges":[{"node":{"base":"frontend"}},{"node":{"base":"javascript"}},{"node":{"base":"nodejs"}},{"node":{"base":"react"}},{"node":{"base":"redux-tool-kit"}},{"node":{"base":"typescript"}}]}}}
+{"data":{"allDirectory":{"totalCount":7,"edges":[{"node":{"base":"frontend"}},{"node":{"base":"javascript"}},{"node":{"base":"nodejs"}},{"node":{"base":"react"}},{"node":{"base":"redux-tool-kit"}},{"node":{"base":"typescript"}},{"node":{"base":"css"}}]}}}
