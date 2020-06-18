@@ -36,15 +36,21 @@ module.exports = {
               toHeading: 6,
             }
           },
+          // {
+          //   resolve: 'gatsby-remark-prismjs',
+          //   options: {
+          //     classPrefix: 'language-',
+          //     inlineCodeMarker: null,
+          //     aliases: {},
+          //     showLineNumbers: false,
+          //     noInlineHighlight: false,
+          //   },
+          // },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: `gatsby-remark-vscode`,
             options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-            },
+              theme: 'Dark+ (default dark)'
+            }
           },
           {
             resolve: 'gatsby-remark-emojis',
