@@ -49,13 +49,7 @@ $(document).ready(() => {
 
 **效果图**
 
-首次进入页面：
-
-![pic_1](/blogs/javascript/js_4_pic_1.png#pic_center)
-
-再次进入页面：
-
-![pic_2](/blogs/javascript/js_4_pic_2.png#pic_center)
+![pic_1](/blogs/javascript/js_4_pic_1.gif#pic_center)
 
 **每次初始化时获取上次存储的滚动值，并滚动到那个位置，就是这么简单！**
 

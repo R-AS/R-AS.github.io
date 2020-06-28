@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
+import Header from '../components/common/Header'
 import CardList from '../components/common/CardList'
 import PaperStepper from '../components/common/PaperStepper'
 
@@ -20,8 +21,10 @@ function Preview(props) {
     setTagList(allFiles.slice(skip, n * tagCount))
     setSkip(skip + tagCount)
   }
+
   return (
     <>
+      <Header siteTitle='R-AS Blog' />
       <CardList list={tagList} type={base.split('/')[1]}/>
       <PaperStepper pageCount={pageCount} skipFn={skipFn}/>
     </>
