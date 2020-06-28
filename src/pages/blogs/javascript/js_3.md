@@ -1,63 +1,140 @@
 ---
-title: '记录网页上一次浏览的位置'
-date: '2020-06-27'
+title: 'async await 是把双刃剑'
+date: '2020-06-22'
 thumbnail: 'javascript/index.png'
 type: 'javascript'
 ---
-
-我们平时浏览公众号文章时会发现，如果我们中途关闭了文章，下次再打开时会滚动至上次浏览的位置。**实现这个功能很简单，其实就是监听滚动值，下次进入时直接滚动至历史浏览位置。**
-
-那如何存储滚动值呢？写入 cookie 或者传给后端，下次返回呢？这些做法太浪费资源了，为啥不存储在浏览器呢！
-
-存储至浏览器有两种做法，一种是 sessionStorage, 一种是 localStorage。利用 sessionStorage 关闭浏览窗口后数据就会被清除，所以这里利用 localStorage.
-
-**直接上代码**
-
-```html
-<body>
-  <img src="./1.jpeg" alt="">
-  <img src="./2.jpg" alt="">
-</body>
+### Table of Contents
+```toc
 ```
+---
+在 async/await 语法糖出现之后，使得我们在写异步函数的时候少了许多不优雅的代码，解决了回调地狱的问题。**但如果对 async/await 理解的不清楚时，虽然能达到异步的效果，但却会降低代码的性能！**
+
+
+## 概述
 
 ```javascript
-// 节流
-const throlle = (fn, timer) => {
-  let canRun = true
-  return () => {
-    if (!canRun) return
-    canRun = false
-    setTimeout(() => {
-      fn()
-      canRun = true
-    }, timer)
-  }
-}
+(async () => {
+  const pizzaData = await getPizzaData() // async call
+  const drinkData = await getDrinkData() // async call
+  const chosenPizza = choosePizza() // sync call
+  const chosenDrink = chooseDrink() // sync call
+  await addPizzaToCart(chosenPizza) // async call
+  await addDrinkToCart(chosenDrink) // async call
+  orderItems() // async call
+})()
+```
+这个示例中 await 语法本身没有问题，但有时候可能使用者用错了。当 prizzaData 与 drinkData 之间没有依赖时，顺序的 await 会最多让执行时间增加一倍的 getPizzaData 函数时间，因为 getPizzaData 与 getDrinkData 应该并行执行。**在这里为了语法简化而带来了性能问题，直接影响用户体验！**
+**正确做法应该是先同时执行函数，在 await 返回值， 这样可以并行执行异步函数**
 
-$(document).ready(() => {
-  const pos = localStorage.getItem('position')
-  if (pos) {
-    $(this).scrollTop(pos)
-  }
+```javascript
+(async () => {
+  const pizzaPromise = selectPizza()
+  const drinkPromise = selectDrink()
+  await pizzaPromise
+  await drinkPromise
+  orderItems() // async call
+})()
 
-  $(this).scroll(throlle(() => {
-    const top = $(this).scrollTop()
-    localStorage.setItem('position', top)
-  }, 1000))
+// 或者使用 Promise.all 可以让代码更可读：
+(async () => {
+  Promise.all([selectPizza(), selectDrink()]).then(orderItems) // async call
+})()
+```
+
+## 分析
+
+那为啥 async/await 会被滥用，这应该是他的功能比较反直觉导致的。
+现在回看回调地狱带来的灾难：
+```javascript
+a(() => {
+  b(() => {
+    c()
+  })
 })
 ```
 
-**效果图**
+利用 async/await 解决回调地狱：
+```javascript
+await a()
+await b()
+await c()
+```
 
-首次进入页面：
+虽然解决了回调地狱，但实际上还是嵌套关系，接下来看下一个例子：
 
-![pic_1](/blogs/javascript/js_3_pic_1.png#pic_center)
+```javascript
+a(() => {
+  b()
+})
 
-再次进入页面：
+c(() => {
+  d()
+})
+```
+如果写成下面的方法，虽然能保证功能一致，但变成了最低效的执行方式：
+```javascript
+await a()
+await b()
+await c()
+await d()
+```
+最后翻译成回调，就变成了：
+```javascript
+a(() => {
+  b(() => {
+    c(() => {
+      d()
+    })
+  })
+})
+```
+然而我们发现在原始代码中， c 可以与 a 同时执行，但 async/await 语法会让我们倾向于在 b 执行后在执行 c
 
-![pic_2](/blogs/javascript/js_3_pic_2.png#pic_center)
+所以可以这样写，优化一下性能
+```javascript
+const resA = a()
+const resC = c()
 
-**每次初始化时获取上次存储的滚动值，并滚动到那个位置，就是这么简单！**
+await resA
+b()
+await resC
+d()
+```
 
-**但是 localStorage 会永久存储于浏览器中，如果想定时清除也是有办法的，首次存储时存入存储时间，待下次页面初始化的时候利用当前时间和存储时间相比，判断是否过期，过期则清除 localStorage.**
+但其实这个逻辑也无法达到回调的效果，虽然 a 与 c 同时执行了，但 d 原本只要等待 c 执行完，现在如果 a 执行时间比 c 长，就变成了：
+```javascript
+a(() => {
+  d()
+})
+```
+可以隔离成两个函数或者利用 Promise.all 解决
+```javascript
+(async () => {
+  await a()
+  b()
+})()
 
+(async () => {
+  await c()
+  d()
+})()
+
+// Promise.all
+async function ab() {
+  await a()
+  b()
+}
+
+async function cd() {
+  await c()
+  d()
+}
+
+Promise.all([ab(), cd()])
+```
+
+所以说，我们利用了 async/await 语法糖减少代码量，但我们也得反过来翻译代码，看实际上是否优化了，否则就踩坑了...
+
+---
+**参考自： https://github.com/dt-fe/weekly/blob/v2/055.%E7%B2%BE%E8%AF%BB%E3%80%8Aasync%20await%20%E6%98%AF%E6%8A%8A%E5%8F%8C%E5%88%83%E5%89%91%E3%80%8B.md** 
