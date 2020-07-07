@@ -33,7 +33,7 @@ function Preview(props) {
 
 export const query = graphql`
   query($base: String!) {
-    allMarkdownRemark(filter: {fields: {slug: {regex: $base}}}) {
+    allMarkdownRemark(filter: {fields: {slug: {regex: $base}}}, sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           html
