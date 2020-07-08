@@ -202,3 +202,135 @@ function Client() {
 - **子类中可以增加自己特有的方法**
 - **当子类的方法重载父类的方法时，方法的前置条件(即方法的形参)要比父类方法的输入参数更宽松**
 - **当子类的方法实现父类的抽象方法时，方法的后置条件(即方法的返回值)要比父类更严格**
+
+---
+## 依赖倒置原则
+- 定义：高层模块不应该依赖低层模块，二者都应该依赖其抽象。抽象不应该依赖细节。细节应该依赖抽象。
+- 问题由来：类 A 直接依赖类 B, 假如要将类 A 改为依赖类 C，则必须通过修改类 A 的代码来达成。这种场景下，类 A 一般是高层模块，负责复杂的业务逻辑。类 B 和类 C 是低层模块，负责基本的原子操作。假如修改类 A，会给程序带来不必要的风险。
+- 解决方案：将类 A 修改为依赖接口 I，类 B 和类 C 各自实现接口 I，类 A 通过接口 I 间接与类 B 或者类 C 发生联系，则会大大降低修改类 A 的几率。
+- 示例：
+
+场景： 母亲给孩子讲故事，只要给她一本书，她就可以照着书给孩子讲故事了。代码如下：
+```typescript
+class Book {
+  getContent() {
+    return '很久很久以前有一个阿拉伯的故事......'
+  }
+}
+
+class Mother {
+  narrate(book: Book) {
+    console.log('妈妈开始讲故事')
+    console.log(book.getContent())
+  }
+}
+
+class Client {
+  constructor() {
+    const mother = new Mother()
+    mother.narrate(new Book())
+  }
+}
+```
+
+运行结果：
+
+```text
+妈妈开始讲故事
+很久很久以前有一个阿拉伯的故事......
+```
+
+运行良好，假如有一天，需求变成这样：不是给书而是给一份报纸，让这位母亲讲一下报纸上的故事，报纸的代码如下：
+
+```typescript
+class Book {
+  private readonly brand = 'Book'
+  getContent() {
+    return '很久很久以前有一个阿拉伯的故事......'
+  }
+}
+
+class Newspaper {
+  private readonly brand = 'Newspaper'
+  getContent() {
+    return '林书豪38+7领导尼克斯击败湖人……'
+  }
+}
+
+class Mother {
+  narrate(book: Book) {
+    console.log('妈妈开始讲故事')
+    console.log(book.getContent())
+  }
+}
+
+class Client {
+  constructor() {
+    const mother = new Mother()
+    mother.narrate(new Book())
+    mother.narrate(new Newspaper()) // Argument of type 'Newspaper' is not assignable to parameter of type 'Book'.Types have separate declarations of a private property 'brand'.ts(2345)
+  }
+}
+```
+
+**(这里为什么要给 Book 和 Newspaper 加上私有属性呢，因为 typescript 的类型系统是结构类型的，java 的类型是名义上的，所以如果类型的成员都是一样的，很多时候 typescript 都不会报错)。在这加上私有属性，因为私有属性的限制，A 实例不能赋值给 B，反之亦然**
+
+这位母亲却办不到，因为她居然不会读报纸上的故事，这太荒唐了，只是将书换成报纸，居然必须要修改Mother才能读。假如以后需求换成杂志呢？换成网页呢？还要不断地修改Mother，这显然不是好的设计。原因就是Mother与Book之间的耦合性太高了，必须降低他们之间的耦合度才行。
+
+我们引入一个抽象的接口IReader。读物，只要是带字的都属于读物
+
+Mother类与接口IReader发生依赖关系，而Book和Newspaper都属于读物的范畴，他们各自都去实现IReader接口，这样就符合依赖倒置原则了，代码修改为：
+
+```typescript
+interface IReader {
+  getContent(): string
+}
+
+class Newspaper implements IReader {
+  private readonly brand = 'Newspaper'
+  getContent() {
+    return '林书豪38+7领导尼克斯击败湖人……'
+  }
+}
+
+class Book implements IReader {
+  private readonly brand = 'Book'
+  getContent() {
+    return '很久很久以前有一个阿拉伯的故事......'
+  }
+}
+
+class Mother {
+  narrate(reader: IReader) {
+    console.log('妈妈开始讲故事')
+    console.log(reader.getContent())
+  }
+}
+
+class Client {
+  constructor() {
+    const mother = new Mother()
+    mother.narrate(new Book())
+    mother.narrate(new Newspaper())
+  }
+}
+```
+
+运行结果：
+
+```text
+妈妈开始讲故事
+很久很久以前有一个阿拉伯的故事......
+妈妈开始讲故事
+林书豪38+7领导尼克斯击败湖人……
+```
+
+这样修改后，无论以后怎样扩展Client类，都不需要再修改Mother类了。这只是一个简单的例子，实际情况中，代表高层模块的Mother类将负责完成主要的业务逻辑，一旦需要对它进行修改，引入错误的风险极大。所以遵循依赖倒置原则可以降低类之间的耦合性，提高系统的稳定性，降低修改程序造成的风险。
+
+在实际编程中，我们一般需要做到如下3点：
+
+- 低层模块尽量都要有抽象类或接口，或者两者都有。
+- 变量的声明类型尽量是抽象类或接口。
+- 使用继承时遵循里氏替换原则。
+
+依赖倒置原则的核心就是要我们面向接口编程，理解了面向接口编程，也就理解了依赖倒置。

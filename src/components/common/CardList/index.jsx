@@ -24,7 +24,10 @@ const useStyles = makeStyles({
   },
   title: {
     paddingBottom: 0,
-    fontSize: '.9rem',
+    fontSize: '.9em',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
   },
   footer: {
     width: '100%',
