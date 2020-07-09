@@ -25,9 +25,6 @@ const useStyles = makeStyles({
   title: {
     paddingBottom: 0,
     fontSize: '.9em',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    overflow: 'hidden',
   },
   footer: {
     width: '100%',
@@ -35,7 +32,12 @@ const useStyles = makeStyles({
   },
   link: {
     textDecoration: 'none',
-  }
+  },
+  cardTitle: {
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+  },
 })
 
 function CartItem({ title, date, thumbnail, slug }) {
@@ -51,7 +53,7 @@ function CartItem({ title, date, thumbnail, slug }) {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.title}>
-              <Typography variant='h6' component='div'>
+              <Typography className={classes.cardTitle} variant='h6' component='div'>
                 {title}
               </Typography>
             </CardContent>
