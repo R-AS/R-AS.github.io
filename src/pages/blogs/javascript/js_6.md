@@ -534,3 +534,148 @@ class D implements I1, I3 {
 
 ---
 ## 迪米特法则
+
+```typescript
+// 总公司员工
+class Employee {
+    private id: string = ''
+    public setId(id: string): void {
+        this.id = id
+    }
+    public getId(): string {
+        return this.id
+    }
+}
+
+// 分公司员工
+class SubEmployee {
+    private id: string = ''
+    public setId(id: string): void {
+        this.id = id
+    }
+    public getId(): string {
+        return this.id
+    }
+}
+
+class SubCompanyManager {
+    public getAllEmployee(): Array<SubEmployee> {
+        const list: Array<SubEmployee> = new Array()
+        for (let i = 0; i < 100; i++) {
+            const emp = new SubEmployee()
+            // 为分公司人员按顺序分配一个 ID
+            emp.setId('分公司' + i)
+            list.push(emp)
+        }
+        return list
+    }
+}
+
+class ComponyManager {
+    public getAllEmployee(): Array<Employee> {
+        const list: Array<Employee> = new Array()
+        for (let i = 0; i < 30; i++) {
+            const emp = new Employee()
+            // 为总公司人员按顺序分配一个 ID
+            emp.setId('总公司' + i)
+            list.push(emp)
+        }
+        return list
+    }
+
+    public printAllEmployee(sub: SubCompanyManager): void {
+        const list1: Array<SubEmployee> = sub.getAllEmployee()
+        list1.map(item => {
+            console.log(item.getId())
+        })
+
+        const list2: Array<Employee> = this.getAllEmployee()
+        list2.map(item => {
+            console.log(item.getId())
+        })
+    }
+}
+
+class Client {
+    constructor() {
+        const e = new ComponyManager()
+        e.printAllEmployee(new SubCompanyManager())
+    }
+}
+
+new Client()
+```
+
+```typescript
+// 总公司员工
+class Employee {
+    private id: string = ''
+    public setId(id: string): void {
+        this.id = id
+    }
+    public getId(): string {
+        return this.id
+    }
+}
+
+// 分公司员工
+class SubEmployee {
+    private id: string = ''
+    public setId(id: string): void {
+        this.id = id
+    }
+    public getId(): string {
+        return this.id
+    }
+}
+
+class SubCompanyManager {
+    public getAllEmployee(): Array<SubEmployee> {
+        const list: Array<SubEmployee> = new Array()
+        for (let i = 0; i < 100; i++) {
+            const emp = new SubEmployee()
+            // 为分公司人员按顺序分配一个 ID
+            emp.setId('分公司' + i)
+            list.push(emp)
+        }
+        return list
+    }
+    public printEmployee(): void {
+        const list: Array<SubEmployee> = this.getAllEmployee()
+        list.map(item => {
+            console.log(item.getId())
+        })
+    }
+}
+
+class ComponyManager {
+    public getAllEmployee(): Array<Employee> {
+        const list: Array<Employee> = new Array()
+        for (let i = 0; i < 30; i++) {
+            const emp = new Employee()
+            // 为总公司人员按顺序分配一个 ID
+            emp.setId('总公司' + i)
+            list.push(emp)
+        }
+        return list
+    }
+
+    public printAllEmployee(sub: SubCompanyManager): void {
+        sub.printEmployee()
+
+        const list2: Array<Employee> = this.getAllEmployee()
+        list2.map(item => {
+            console.log(item.getId())
+        })
+    }
+}
+
+class Client {
+    constructor() {
+        const e = new ComponyManager()
+        e.printAllEmployee(new SubCompanyManager())
+    }
+}
+
+new Client()
+```
