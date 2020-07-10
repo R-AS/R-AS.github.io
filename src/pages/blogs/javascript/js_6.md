@@ -1,6 +1,6 @@
 ---
 title: '设计模式的六大原则'
-date: '2020-07-17'
+date: '2020-07-10'
 thumbnail: 'javascript/index.png'
 type: 'javascript'
 ---
