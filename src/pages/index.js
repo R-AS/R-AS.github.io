@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title='Home' />
+      <SEO title='Home' keywords={['r-as', 'gatsby']}/>
       <div className={classes.image}>
         <Image data={data} />
         <h1 className={classes.h1}>
