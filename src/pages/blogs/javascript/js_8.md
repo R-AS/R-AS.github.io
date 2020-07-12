@@ -1,6 +1,6 @@
 ---
-title: '设计模式 —— 工厂模式'
-date: '2020-07-10'
+title: '设计模式'
+date: '2020-07-11'
 thumbnail: 'javascript/index.png'
 type: 'javascript'
 ---
@@ -8,6 +8,7 @@ type: 'javascript'
 ```toc
 ```
 ---
+
 ## 工厂模式
 - 定义：简单工厂模式是由一个方法来决定到底要创建哪个类的实例，而这些类通常都拥有相同的接口(属性和方法)
 - 使用场景：
@@ -87,4 +88,195 @@ Archer { skill: '消耗', blood: 110, hit: 10 }
 
 下面均已登录模态框做说明
 
-1. 引入代理实现单例模式
+1. **引入代理实现单例模式**
+
+```javascript
+var CreateDiv = function (html) {
+  this.html = html
+  this.init()
+}
+
+CreateDiv.prototype.init = function () {
+  var div = document.createElement('div')
+  div.innerHTML = this.html
+  document.body.appendChild(div)
+}
+
+var ProxySingletonCreateDiv = (function () {
+  var instance
+  return function (html) {
+    if (!instance) {
+      instance = new CreateDiv(html)
+    }
+    return instance
+  }
+})()
+
+var a = new ProxySingletonCreateDiv('seven1')
+var b = new ProxySingletonCreateDiv('seven2')
+
+console.log(a === b)  // true
+```
+
+PS：我们负责管理单例的逻辑移到了代理类ProxySingletonCreateDiv中。
+
+这样一来，CreateDiv就变成了一个普通的类，他跟ProxySingletonCreateDiv组合起来可以达到单例模式的效果。
+
+2. **通用的单例模式**
+
+```javascript
+// 通用的单例验证方法
+const getSingle = function (fn) {
+  let result
+  return function () {
+    return result || (result = fn.apply(this, arguments))
+  }
+}
+
+// 创建登录模态框
+const createLoginLayer = function () {
+  const div = document.createELement('div')
+  div.innerHTML = '我是登录模态框'
+  document.body.appendChild(div)
+  return div
+}
+
+// 为登录模态框使用单例模式
+const createSingleLoginLayer = getSingle(createLoginLayer)
+const loginLayer1 = createSingleLoginLayer()
+const loginLayer2 = createSignleLoginLayer()
+
+console.log(loginLayer1 === loginLayer2)  // true
+```
+
+这时不管你执行多少次 createSingleLoginLoyer() 方法，都只会生产一个 div 节点。
+
+我们的通用单例模式就完成了。
+
+3. **惰性单例**
+- 惰性单例指的是在需要的时候才创建对象的实例
+
+以创建登录模态框为例
+
+```javascript
+const createLoginLayer = (function () {
+  let div
+  return function () {
+    if (!div) {
+      div = document.createELement('div')
+      div.innerHTML = '我是登录模态框'
+    }
+    return div
+  }
+})()
+
+// 在点击按钮时才创建节点
+document.getElementById('login-btn').onclick = function () {
+  var loginLayer = createLoginLayer()
+  loginLayer.style.display = 'block'
+}
+```
+
+这里的对惰性单例的实现主要是只有单例了网页上的登录按钮，才会去创建，登录框的dom节点，并且只是创建一次。
+
+---
+## 策略模式
+- 定义：定义一系列的算法，把他们一个个封装起来，并且使他们可以互相替换
+- 使用场景：表单校验(是否为空、长度、手机号、邮箱等等)
+- 示例：
+
+计算年终奖(工资、绩效)
+
+比如公司的年终奖是根据员工的工资和绩效来考核的，绩效为A的人，年终奖为工资的4倍，
+绩效为B的人，年终奖为工资的3倍，绩效为C的人，年终奖为工资的2倍；
+
+```javascript
+// 一组策略类封装具体的算法
+const Bouns = {
+  A(salary) {
+    return salary * 4
+  },
+  B(salary) {
+    return salary * 3
+  },
+  C(salary) {
+    return salary * 2
+  }
+}
+Object.freeze(Bouns)
+
+/*
+* 计算年终奖 环境类Context
+* @param {String} A 效绩等级
+* @param {Number} 10000 每月工资
+* @returns {Number} 40000 年终奖
+*/
+const calculateBouns = function (type, salary) {
+  return Bouns[type](salary)
+}
+
+// 测试年终奖计算方式
+const demo1 = calculateBouns('A', 10000)
+const demo2 = calculateBouns('B', 80000)
+console.log(demo1, demo2) // 40000, 240000
+```
+
+PS：
+策略模式指的是定义一系列的算法，把它们一个个封装起来，将不变的部分和变化的部分隔开，实际就是将算法的使用和实现分离出来；算法的使用方式是不变的，都是根据某个算法取得计算后的奖金数，而算法的实现是根据绩效对应不同的绩效规则；
+
+一个基于策略模式的程序至少由2部分组成，第一个部分是一组策略类，策略类封装了具体的算法，并负责具体的计算过程。第二个部分是环境类Context，该Context接收客户端的请求，随后把请求委托给某一个策略类。
+
+复合开放-封闭原则，可变的部分为策略类（一组算法），不变的部分为执行具体算法的方式。
+
+---
+## 代理模式
+- 定义：为一个对象提供一个代用品或占位符，以便控制对他的访问。代理对象和本体对象实现了同样的接口，并且会把任何方法调用传递给本体对象。
+- 使用场景：
+  - 图片预加载、图片懒加载
+  - 合并 HTTP 请求(代理收集一定时间内的所有 HTTP 请求，然后一次性发给服务器)
+  - 惰性加载(通过代理处理和收集一些基本操作，然后仅在真正需要本体的时候才加载本体)
+  - 缓存代理(缓存请求结果、计算结果)
+
+1. **缓存代理**
+
+```javascript
+// 先实现具体的两个算法
+const mult = function () {
+  let a = 1
+  for (let i = 0; i < arguments.length; i++) {
+    a *= arguments[i]
+  }
+  return a
+}
+const plus = function () {
+  let a = 0
+  for (let i = 0; i < arguments.length; i++) {
+    a += arguments[i]
+  }
+  return a
+}
+
+// 创建缓存代理
+const createProcyFactory = function (fn) {
+  let cache = {}  // 保存计算的结果
+  // 使用闭包在内存中保留对 cache 的引用
+  return function() {
+    let args = Array.from(arguments).join(',')  // 将所有参数转化为字符串作为缓存的 key
+    if (args in cache) {
+      return cache[args]
+    } else {
+      return cache[args] = fn.apply(this.arguments)
+    }
+  }
+}
+
+// 使用代理对象
+const proxyMult = createProxyFactory(mult)
+const proxyPlus = createProxyFactory(plus)
+console.log(proxyMult(1, 2, 3, 4))  // 24
+console.log(proxyPlus(1, 2, 3, 4))  // 10
+```
+
+PS：这里每次进行同类的计算时（乘法和加法两类），先判断缓存对象cache中是否存在该参数连接成的字符串作为key的属性。
+
+如果有，则直接从cache中读取，否则就进行计算并保存其结果。
