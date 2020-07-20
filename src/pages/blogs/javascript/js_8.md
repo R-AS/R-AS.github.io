@@ -280,3 +280,169 @@ console.log(proxyPlus(1, 2, 3, 4))  // 10
 PS：这里每次进行同类的计算时（乘法和加法两类），先判断缓存对象cache中是否存在该参数连接成的字符串作为key的属性。
 
 如果有，则直接从cache中读取，否则就进行计算并保存其结果。
+
+2. **虚拟代理**
+- 定义：某一个花销很大的操作，可以通过虚拟代理的方式延迟到这种需要它的时候才去创建
+- 使用场景：使用虚拟代理实现图片懒加载
+- 示例：
+
+```javascript
+// 本地对象
+const imgFunc = (function() {
+  const imgNode = document.createElement('img')
+  document.body.appendChild(imgNode)
+  return {
+    setSrc(src) {
+      imgNode.src = src
+    }
+  }
+})()
+
+// 代理对象
+const proxyImage = (function() {
+  const img = new Image()
+  img.onload = function() {
+    imgFunc.setSrc(this.src)
+  }
+  return {
+    setSrc(src) {
+      imgFunc.setSrc('./loading.gif')
+      img.src = src
+    }
+  }
+})()
+
+// 使用代理对象
+proxyImage.setSrc('./reality.png')
+```
+
+PS：图片懒加载的方式：先通过一张loading图占位，然后通过异步的方式加载图片，等图片加载好了再把完成的图片加载到img标签里面。
+
+---
+## 中介者模式
+- 定义：中介者模式的作用就是解除对象与对象之间的紧耦合关系。增加一个中介者对象后，
+所有的相关对象都通过中介者对象来通信，而不是互相引用，所以当一个对象发生改变时，
+只需要通知中介者对象即可。中介者使各对象之间耦合松散，而且可以独立地改变它们之间的交互。
+中介者模式使网状的多对多关系变成了相对简单的一对多关系。
+- 使用场景：
+  1. 手机购买页面(颜色、数量、内存、价格)
+  2. MVC 模式(控制层便是位于表现层与模型层之间的中介这)
+
+1. **MVC 模式**
+- 定义：我们应该很熟悉 MVC 三层模型实体模型（Model）、视图表现层（View）还有控制层（Control/Mediator）。MVC 模式中的Control/Mediator 层，就是本设计模式的中介者 (它必须拿到 View 和 Model 的引用)。
+- 示例：
+
+```javascript
+// 模拟 Model, View, Controller
+const M = {}, V = {}, C = {}
+
+// Model 负责存放资料
+M.data = 'hello world'
+
+// View 负责将资料输出到荧幕上
+V.render = M => { alert(M.data) }
+
+// Controller 作为一个 M 和 V 的桥梁
+C.handleOnload = () => { V.render(M) }
+
+// 在网页读取时呼叫 Controller
+window.onload = C.handleOnload
+```
+
+---
+## 装饰者模式
+- 定义：装饰者(decorator)模式能够在不改变对象自身的基础上，在程序运行期间给对象动态的添加职责。
+装饰者用于通过重载方法的形式添加新功能，该模式可以在被装饰者前面或者后面加上自己的行为以达到特定的目的。
+
+与继承相比，装饰者是一种更轻便灵活的做法。
+
+普通对象被装饰者包裹起来，就形成了装饰者模式。
+
+- 示例：
+1. **雷霆战机(吃道具的例子)**
+
+介绍：
+- 现在我们假设正在开发一个小游戏–雷霆战机
+- 最开始我们使用最渣的飞机，只能发射普通子弹
+- 吃一颗星，可以发射普通子弹和发射散弹
+- 再吃一颗，可以发射普通子弹和散弹和跟踪导弹
+
+```javascript
+// 一级飞机
+const plane = {
+  fire() { console.log('发射普通子弹') }
+}
+plane.fire()  // 发射普通子弹
+
+// 二级飞机
+const fire1 = plane.fire
+const shot = () => { console.log('发射散弹') }
+
+plane.fire = () => {
+  fire1()
+  shot()
+}
+
+plane.fire()  // 发射普通子弹、发射散弹
+
+// 三级飞机
+const fire2 = plane.fire
+const track = () => { console.log('发射跟踪导弹') }
+plane.fire = () => {
+  fire2()
+  track()
+}
+plane.fire()  // 发射普通子弹 发射散弹 发射跟踪导弹
+```
+
+PS：这样给对象动态的增加职责的方式就没有改变对象自身，一个对象放入另一个对象就形成了一条装饰链(一个聚合对象)， 而上面的shot和track也就是装饰者、装饰函数 ，当函数执行时，会把请求转给链中的下一个对象。
+
+2. 在 Function 原型上封装通用的装饰函数
+
+```javascript
+// 在原函数之前执行
+Function.prototype.before = function(beforefn) {
+  var _this = this  // 保存旧函数的引用
+  return function() { // 返回包含旧函数和新函数的"代理"函数
+    beforefn.apply(this.arguments)  // 执行新函数,且保证this不被劫持,新函数接受的参数
+    return _this.apply(this.arguments)  // 也会被原封不懂的传入旧函数，新函数在旧函数之前执行
+  }
+}
+
+// 在原函数之后执行
+Function.prototype.after = function(afterfn) {
+  const _this = this
+  return function() {
+    var ret = _this.apply(this.arguments)
+    afterfn.apply(this.arguments)
+    return ret
+  }
+}
+```
+
+3. 封装成单独函数(不污染原型)
+
+```javascript
+// 在原函数之前执行
+const before = function(fn, before) {
+  return function() {
+    before.apply(this.arguments)
+    return fn.apply(this.arguments)
+  }
+}
+
+// 使用
+before(func1, func2)
+
+// 在原函数之后执行
+const after = function(fn, after) {
+  return function() {
+    const ret = fn.apply(this.arguments)
+    after.apply(this.arguments)
+    return ret
+  }
+}
+
+// 使用
+after(func1, func2)
+```
