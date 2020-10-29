@@ -133,6 +133,31 @@ filename: compTemplate.js
 
 因此每次所生成的文件名都和模板的一样。所以我们可以自己设置一个 paths 属性, path 文件名为变量。这样我们得到的文件名就是想要的样子了。(第一张图的注释去掉即可生效)
 
+**修改源码可以使用 patch-package 来修改。如果我们直接在 node_modules 中修改，下次 npm install 的时候代码就丢失了。**
+
+步骤如下：
+
+1. 安装patch-package:
+```text
+npm i patch-package --save-dev
+```
+2. 修改 node_modules 源码
+3. 执行命令:
+```text
+npx patch-package node-plop
+```
+
+第一次使用 patch-package 会在项目根目录生成 patches 文件夹，里面有修改过的文件 diff 记录。
+
+![pic_5](/blogs/frontend/frontend_5_pic_5.png#pic_center)
+
+4. 下次 install 后, 需要执行以下命令:
+```text
+git apply --ignore-whitespace patches/node-plop+0.26.2.patch
+```
+
+**node-plop+0.26.2.patch是它生成的文件名。**
+
 **3. 看下效果**
 ```text
 npm run plop
@@ -146,4 +171,7 @@ npm run plop
 ![pic_4](/blogs/frontend/frontend_5_pic_4.png#pic_center)
 
 ---
-**参考自 [https://github.com/plopjs/plop](https://github.com/plopjs/plop)** 
+**参考自** 
+
+- **[https://github.com/plopjs/plop](https://github.com/plopjs/plop)** 
+- **[https://juejin.im/post/6844904163558555662](https://juejin.im/post/6844904163558555662)**
