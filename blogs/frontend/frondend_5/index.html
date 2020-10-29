@@ -100,14 +100,40 @@
 <span class="grvsc-line">base: &#39;src/templates/comp&#39;</span>
 <span class="grvsc-line">filename: compTemplate.js</span></code></pre>
 <p>因此每次所生成的文件名都和模板的一样。所以我们可以自己设置一个 paths 属性, path 文件名为变量。这样我们得到的文件名就是想要的样子了。(第一张图的注释去掉即可生效)</p>
+<p><strong>修改源码可以使用 patch-package 来修改。如果我们直接在 node_modules 中修改，下次 npm install 的时候代码就丢失了。</strong></p>
+<p>步骤如下：</p>
+<ol>
+<li>
+<p>安装patch-package:</p>
+<pre class="grvsc-container dark-default-dark" data-language="text" data-index="8"><code class="grvsc-code"><span class="grvsc-line">npm i patch-package --save-dev</span></code></pre>
+</li>
+<li>修改 node_modules 源码</li>
+<li>
+<p>执行命令:</p>
+<pre class="grvsc-container dark-default-dark" data-language="text" data-index="9"><code class="grvsc-code"><span class="grvsc-line">npx patch-package node-plop</span></code></pre>
+</li>
+</ol>
+<p>第一次使用 patch-package 会在项目根目录生成 patches 文件夹，里面有修改过的文件 diff 记录。</p>
+<p><img src="/blogs/frontend/frontend_5_pic_5.png#pic_center" alt="pic_5"></p>
+<ol start="4">
+<li>
+<p>下次 install 后, 需要执行以下命令:</p>
+<pre class="grvsc-container dark-default-dark" data-language="text" data-index="10"><code class="grvsc-code"><span class="grvsc-line">git apply --ignore-whitespace patches/node-plop+0.26.2.patch</span></code></pre>
+</li>
+</ol>
+<p><strong>node-plop+0.26.2.patch是它生成的文件名。</strong></p>
 <p><strong>3. 看下效果</strong></p>
-<pre class="grvsc-container dark-default-dark" data-language="text" data-index="8"><code class="grvsc-code"><span class="grvsc-line">npm run plop</span></code></pre>
+<pre class="grvsc-container dark-default-dark" data-language="text" data-index="11"><code class="grvsc-code"><span class="grvsc-line">npm run plop</span></code></pre>
 <p>输入我们的组件名称</p>
 <p><img src="/blogs/frontend/frontend_5_pic_3.png#pic_center" alt="pic_3"></p>
 <p>可以看到文件夹、文件名、代码中的组件名都变成我们想要的 videoComponent 了！</p>
 <p><img src="/blogs/frontend/frontend_5_pic_4.png#pic_center" alt="pic_4"></p>
 <hr>
-<p><strong>参考自 <a href="https://github.com/plopjs/plop">https://github.com/plopjs/plop</a></strong> </p>
+<p><strong>参考自</strong> </p>
+<ul>
+<li><strong><a href="https://github.com/plopjs/plop">https://github.com/plopjs/plop</a></strong> </li>
+<li><strong><a href="https://juejin.im/post/6844904163558555662">https://juejin.im/post/6844904163558555662</a></strong></li>
+</ul>
 <style class="grvsc-styles">
   .grvsc-container {
     overflow: auto;
