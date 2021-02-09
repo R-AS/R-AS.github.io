@@ -620,3 +620,32 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.copyButton {
+  width: 48px;
+  color: #fff;
+}
+
+.copyButton svg {
+  display: none;
+}
+
+.copyButton::after {
+  display: none;
+  background-color: transparent;
+}
+
+.copyToaster {
+  align-items: flex-end;
+}
+
+.copyToasterText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 200px;
+  height: 50px;
+  font-size: 1.3rem;
+  background-color: #333333;
+} 

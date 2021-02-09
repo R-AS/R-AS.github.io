@@ -14,10 +14,18 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-material-ui',
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+          disableMinification: false,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-code-buttons',
           {
             resolve: 'gatsby-remark-table-of-contents',
             options: {
@@ -37,6 +45,18 @@ module.exports = {
           //     noInlineHighlight: false,
           //   },
           // },
+          {
+            resolve: 'gatsby-remark-code-buttons',
+            options: {
+              buttonClass: `copyButton`,
+              buttonText: `copy`,
+              svgIcon: ``,
+              toasterClass: `copyToaster`,
+              toasterTextClass: `copyToasterText`,
+              toasterText: 'copy successfully!',
+              toasterDuration: 5000,
+            },
+          },
           {
             resolve: `gatsby-remark-vscode`,
             options: {
