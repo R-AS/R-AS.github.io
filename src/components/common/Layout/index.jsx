@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
@@ -13,10 +6,10 @@ import Header from '../Header'
 import './index.css'
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  container: {
     backgroundColor: 'rgba(230, 230, 230, 0.1)',
   },
-  content: {
+  root: {
     margin: '0 auto',
     maxWidth: 960,
     minHeight: '80vh',
@@ -42,9 +35,9 @@ const Layout = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
+    <div className={classes.container}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className={classes.content}>
+      <div className={classes.root}>
         <main>{children}</main>
       </div>
       <footer className={classes.footer}>

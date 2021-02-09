@@ -17,6 +17,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-code-buttons',
           {
             resolve: 'gatsby-remark-table-of-contents',
             options: {
@@ -40,7 +41,7 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             options: {
               theme: 'Dark+ (default dark)'
-            }
+            },
           },
           {
             resolve: 'gatsby-remark-emojis',
