@@ -10,8 +10,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, title, keywords }) {
-  const { site, allMarkdownRemark } = useStaticQuery(
+function SEO({ description, lang, title }) {
+  const { site } = useStaticQuery(
     graphql`
       query {
         site {
@@ -21,21 +21,13 @@ function SEO({ description, lang, meta, title, keywords }) {
             author
           }
         }
-        allMarkdownRemark {
-          edges {
-            node {
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
       }
     `
   )
 
+  const { author, url } = site.siteMetadata
+
   const metaDescription = description || site.siteMetadata.description
-  const titles = allMarkdownRemark.edges.map(item => item.node.frontmatter.title)
 
   return (
     <Helmet
@@ -61,36 +53,13 @@ function SEO({ description, lang, meta, title, keywords }) {
           property: 'og:type',
           content: 'website',
         },
-        {
-          name: 'twitter:card',
-          content: 'summary',
-        },
-        {
-          name: 'twitter:creator',
-          content: site.siteMetadata.author,
-        },
-        {
-          name: 'twitter:title',
-          content: title,
-        },
-        {
-          name: 'twitter:description',
-          content: metaDescription,
-        },
-        {
-          name: 'keywords',
-          content: site.siteMetadata.keywords,
-        },
-      ].concat(
-       keywords.length > 0
-        ? {
-            name: 'keywords',
-            content: keywords.concat(titles).join(','),
-          }
-        : [] 
-      )
-      .concat(meta)}
-    />
+      ]}
+    >
+      {title && <meta property="og:title" content={title} />}
+      {metaDescription && <meta property="og:description" content={metaDescription} />}
+      {author && <meta property="og:author" content={author} />}
+      {url && <meta property="og:url" content={url} />}
+    </Helmet>
   )
 }
 

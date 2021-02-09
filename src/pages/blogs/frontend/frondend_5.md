@@ -16,12 +16,12 @@ type: 'frontend'
 ### 安装
 
 **1. 将 plop 添加到项目中**
-```text
+```
 npm install --save-dev plop
 ```
 
 **2. 全局安装 plop** 
-```text
+```
 npm install -g plop
 ```
 ---
@@ -49,14 +49,14 @@ module.exports = function (plop) {
 
 因为项目组件采用 duck 的结构，目录大致如下:
 
-```text
+```
 videoComponent
 |_ videoComponent
 |_ videoContainer
 ```
 
 因此可以抽出一个模板：
-```text
+```
 src
 |_ templates
    |_ component
@@ -125,7 +125,7 @@ module.exports = plop => {
 
 
 也就是说：
-```text
+```
 templateFile: 'src/templates/comp/compTemplate.js'
 base: 'src/templates/comp'
 filename: compTemplate.js
@@ -138,12 +138,12 @@ filename: compTemplate.js
 步骤如下：
 
 1. 安装patch-package:
-```text
+```
 npm i patch-package --save-dev
 ```
 2. 修改 node_modules 源码
 3. 执行命令:
-```text
+```
 npx patch-package node-plop
 ```
 
@@ -152,14 +152,14 @@ npx patch-package node-plop
 ![pic_5](/blogs/frontend/frontend_5_pic_5.png#pic_center)
 
 4. 下次 install 后, 需要执行以下命令:
-```text
+```
 git apply --ignore-whitespace patches/node-plop+0.26.2.patch
 ```
 
 **node-plop+0.26.2.patch是它生成的文件名。**
 
 **3. 看下效果**
-```text
+```
 npm run plop
 ```
 输入我们的组件名称

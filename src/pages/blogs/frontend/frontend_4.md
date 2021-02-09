@@ -54,11 +54,11 @@ FileReader 对象允许 Web 应用程序异步读取存储在用户计算机上�
 
 可以看到 img 元素 src 属性值是一串很长的字符串：
 
-```text
+```
 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhAAAAIwCAYAAADXrFK...
 ```
 这串奇怪的字符串被称为 Data URL, 它由四个部分组成：前缀(data:)、指示数据类型的 MIME 类型、如果非文本则为可选的 base64 标记、数据本身：
-```text
+```
 data:[<mediatype>][;base64],<data>
 ```
 mediatype 是个 MIME 类型的字符串，例如 "image/jpeg" 表示 JPEG 图像文件。如果被省略，则默认值为 text/plain;charset=US-ASCII
@@ -66,7 +66,7 @@ mediatype 是个 MIME 类型的字符串，例如 "image/jpeg" 表示 JPEG 图�
 如果数据是文本类型，你可以直接将文本嵌入 (根据文档类型，使用合适的实体字符或转义字符)。如果是二进制数据，你可以将数据进行base64编码之后再进行嵌入。
 
 下面是一些示例：
-```text
+```
 data:,Hello%2C%20World!
 简单的 text/plain 类型数据
 
@@ -169,7 +169,7 @@ console.log(name); // Semlinker
 
 我们可以看到 img 元素的 src 属性值是一串非常**特殊**的字符串:
 
-```text
+```
 blob:null/ab24c171-1c5f-4de1-a44e-568bc1f77d7b
 ```
 
@@ -179,7 +179,7 @@ blob:null/ab24c171-1c5f-4de1-a44e-568bc1f77d7b
 
 Object URL 是一种伪协议，也被称为 Blob URL。它允许 Blob 或 File 对象用作图像，下载二进制数据链接等的 URL 源。在浏览器中，我们使用 URL.createObjectURL 方法来创建 Blob URL，该方法接收一个 Blob 对象，并为其创建一个唯一的 URL，其形式为 **blob:<origin>/<uuid>**，对应示例如下：
 
-```text
+```
 blob:https://example.org/40a5fb5a-d56d-4a33-b4e2-0acf6a8e5f641
 ```
 
@@ -299,7 +299,7 @@ var z = new Uint8Array(buffer, 1, 4);
 
 ArrayBuffer 本身只是一行 0 和 1 串。ArrayBuffer 不知道该数组中第一个元素和第二个元素之间的分隔位置。
 
-```text
+```
 010010111010000110...
 ```
 为了提供上下文，实际上要将其分解为多个盒子，我们需要将其包装在所谓的视图中，可以使用类型数组添加这些数据视图，并且可以使用许多不同类型的类型数组。

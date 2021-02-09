@@ -35,7 +35,6 @@ export const query = graphql`
     allMarkdownRemark(filter: {fields: {slug: {regex: $base}}}, sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
-          html
           fields {
             slug
           }

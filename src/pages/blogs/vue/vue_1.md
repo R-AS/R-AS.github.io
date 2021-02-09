@@ -10,17 +10,17 @@ type: 'vue'
 ---
 ### Webpack 基本配置
 **1.初始化项目**
-```text
+```
 npm init -y
 ```
 
 **2.安装 webpack、webpack-cli**
-```text
+```
 npm install webpack webpack-cli --save-dev
 ```
 
 **3.设置 package.json 用来执行 webpack，在 "script" 中加入 build 的规则**
-```text
+```
 "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
   "build": "webpack"
@@ -30,7 +30,7 @@ npm install webpack webpack-cli --save-dev
 **4. 创建项目目录**
 
 大概目录如下，src 用来存放我们的代码，dist 存在打包后的代码
-```text
+```
 vue-demo
 |_ dist
 |_ node_modules
@@ -40,7 +40,7 @@ vue-demo
 ```
 
 **5. 在 src 下新建 index.js，测试打包**
-```text
+```
 npm run build
 ```
 **6. 在 dist 下新建 index.html，引入 main.js**
@@ -60,7 +60,7 @@ npm run build
 ### Vue 搭建
 
 **1. npm 安装 vue**
-```text
+```
 npm install vue
 ```
 
@@ -77,7 +77,7 @@ new Vue({
 ```
 
 **3. 打包并打开 index.html 测试**
-```text
+```
 npm run build
 ```
 
@@ -90,12 +90,12 @@ npm run build
 
 安装 **babel-core** 和 **babel-loader**
 
-```text
+```
 npm install babel-core babel-loader --save-dev
 ```
 
 **2.安装 babel-preset-env 和 babel-preset-vue**
-```text
+```
 npm install babel-preset-env babel-preset-vue --save-dev
 ```
 
@@ -103,12 +103,12 @@ npm install babel-preset-env babel-preset-vue --save-dev
 
 安装 **vue-loader, vue-style-loader, css-loader, file-loader, vue-template-compiler**
 
-```text
+```
 npm install vue-loader vue-style-loader css-loader file-loader vue-template-compiler --save-dev
 ```
 
 **4.在 package.json 中加入以下设定**
-```text
+```
 "babel": {
   "presets": ["env", "vue"]
 }

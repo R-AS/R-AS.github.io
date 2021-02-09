@@ -4,6 +4,7 @@ module.exports = {
     title: 'R-AS Blog',
     description: "A blog site that records aerial photography and front-end development",
     author: 'R-AS',
+    url: 'https://r-as.github.io'
   },
   plugins: [
     {
