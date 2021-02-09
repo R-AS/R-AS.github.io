@@ -45,20 +45,20 @@ const Header = ({ siteTitle }) => {
             <SearchBar />
           </div>
         </Grid>
-        <Typography>
+        {/* <Typography>
           <Link
             className={classNames(classes.span, classes.font)}
             to='/'
           >
             首页
           </Link>
-        </Typography>
+        </Typography> */}
         <Typography>
           <Link
             className={classNames(classes.span, classes.font)}
             to='/about'
           >
-            关于
+            About
           </Link>
         </Typography>
       </Toolbar>

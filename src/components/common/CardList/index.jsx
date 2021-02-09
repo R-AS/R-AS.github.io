@@ -23,12 +23,14 @@ const useStyles = makeStyles({
     height: 120,
   },
   title: {
+    paddingTop: 8,
     paddingBottom: 0,
-    fontSize: '.9em',
+    // fontSize: '.9em',
   },
   footer: {
+    paddingTop: 0,
     width: '100%',
-    fontSize: '.9rem',
+    fontSize: '.8rem',
   },
   link: {
     textDecoration: 'none',
@@ -53,13 +55,13 @@ function CartItem({ title, date, thumbnail, slug }) {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.title}>
-              <Typography className={classes.cardTitle} variant='h6' component='div'>
+              <Typography className={classes.cardTitle} variant='subtitle1' component='div'>
                 {title}
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Typography  className={classes.footer} align='right' gutterBottom variant='caption' component='span'>
+            <Typography className={classes.footer} align='right' gutterBottom variant='body2' component='span'>
               {date}
             </Typography>
           </CardActions>

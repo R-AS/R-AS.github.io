@@ -9,17 +9,16 @@ function Preview(props) {
   const tagCount = 8
   const allFiles = Object.assign([], data.allMarkdownRemark.edges)
   const pageCount = Math.ceil(allFiles.length / tagCount)
-  const [skip, setSkip] = useState(0)
   const [tagList, setTagList] = useState(allFiles)
 
   useEffect(() => {
-    setTagList(allFiles.slice(skip, skip + tagCount))
-    setSkip(skip + 8)
+    setTagList(allFiles.slice(0, tagCount))
   }, [])
 
   const skipFn = (n) => {
-    setTagList(allFiles.slice(skip, n * tagCount))
-    setSkip(skip + tagCount)
+    const start = (n - 1) * tagCount
+    const end = n * tagCount
+    setTagList(allFiles.slice(start, end))
   }
 
   return (

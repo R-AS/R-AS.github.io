@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: '/',
   siteMetadata: {
     title: 'R-AS Blog',
-    description: "A front-end programmer's blog",
+    description: "A blog site that records aerial photography and front-end development",
     author: 'R-AS',
   },
   plugins: [
@@ -11,16 +11,6 @@ module.exports = {
       options: {
         name: 'src',
         path: `${__dirname}/src`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-material-ui',
-      options: {
-        stylesProvider: {
-          injectFirst: true,
-          // disableAutoprefixing: false,
-          disableMinification: false,
-        },
       },
     },
     {

@@ -44,7 +44,7 @@ function PaperStepper (props) {
         nextButton={
           <Button size='small'  onClick={handleNext} disabled={activeStep === maxSteps - 1}>
             Next
-            {theme.direaction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
           </Button>
         }
         backButton={

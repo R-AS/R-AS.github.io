@@ -14,6 +14,9 @@ import './index.css'
 
 const useStyles = makeStyles(theme => ({
   root: {
+    backgroundColor: 'rgba(230, 230, 230, 0.1)',
+  },
+  content: {
     margin: '0 auto',
     maxWidth: 960,
     minHeight: '80vh',
@@ -39,16 +42,16 @@ const Layout = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <>
+    <div className={classes.root}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className={classes.root}>
+      <div className={classes.content}>
         <main>{children}</main>
       </div>
       <footer className={classes.footer}>
         © {new Date().getFullYear()}, Built with R-AS
         {' '}
       </footer>
-    </>
+    </div>
   )
 }
 

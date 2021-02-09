@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { makeStyles } from '@material-ui/core/styles'
 import Layout from '../components/common/Layout'
 import SEO from '../components/common/Seo'
+import { motion } from 'framer-motion'
 
 const useStyles = makeStyles(theme => ({
   paragraph: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   content: {
     marginTop: '5%',
     fontSize: '.9rem',
+    color: theme.palette.text.primary,
   }
 }))
 
