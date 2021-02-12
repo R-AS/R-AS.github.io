@@ -54,11 +54,12 @@ function SEO({ description, lang, title, keyword }) {
           content: 'website',
         },
         {
-          property: 'og:keyword',
-          content: keyword,
+          property: 'og:keywords',
+          content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
         },
       ]}
     >
+      <link rel="canonical" href='https://r-as.github.io' />
       {title && <meta property="og:title" content={title} />}
       {metaDescription && <meta property="og:description" content={metaDescription} />}
       {author && <meta property="og:author" content={author} />}
@@ -71,7 +72,7 @@ SEO.defaultProps = {
   lang: 'en',
   meta: [],
   description: '',
-  keyword: "R-AS's blog",
+  keyword: '',
 }
 
 SEO.propTypes = {
