@@ -24,7 +24,7 @@ export default ({ data }) => {
   const post = data.markdownRemark
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <SEO title={post.frontmatter.title} description={post.excerpt} keyword={post.frontmatter.title} />
       <div>
         <h1>{post.frontmatter.title}</h1>
         <p className={classes.paragraph}>{post.frontmatter.date}</p>

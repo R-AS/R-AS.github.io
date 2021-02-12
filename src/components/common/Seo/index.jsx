@@ -53,6 +53,10 @@ function SEO({ description, lang, title }) {
           property: 'og:type',
           content: 'website',
         },
+        {
+          property: 'og:keyword',
+          content: keywords,
+        },
       ]}
     >
       {title && <meta property="og:title" content={title} />}
@@ -67,7 +71,7 @@ SEO.defaultProps = {
   lang: 'en',
   meta: [],
   description: '',
-  keywords: [],
+  keyword: "R-AS's blog",
 }
 
 SEO.propTypes = {
@@ -75,7 +79,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  keywords: PropTypes.array,
+  keyword: PropTypes.string,
 }
 
 export default SEO
