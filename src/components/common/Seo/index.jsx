@@ -57,13 +57,29 @@ function SEO({ description, lang, title, keyword }) {
           property: 'og:keywords',
           content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
         },
+        {
+          property: 'title',
+          content: title,
+        },
+        {
+          property: 'description',
+          content: metaDescription,
+        },,
+        {
+          property: 'keywords',
+          content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
+        },
       ]}
     >
       <link rel="canonical" href='https://r-as.github.io' />
       {title && <meta property="og:title" content={title} />}
+      {title && <meta property="title" content={title} />}
       {metaDescription && <meta property="og:description" content={metaDescription} />}
+      {metaDescription && <meta property="description" content={metaDescription} />}
       {author && <meta property="og:author" content={author} />}
+      {author && <meta property="author" content={author} />}
       {url && <meta property="og:url" content={url} />}
+      {url && <meta property="url" content={url} />}
     </Helmet>
   )
 }
