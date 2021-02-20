@@ -69,6 +69,14 @@ function SEO({ description, lang, title, keyword }) {
           property: 'keywords',
           content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
         },
+        {
+          property: 'author',
+          content: 'ZHENG & R-AS',
+        },
+        {
+          property: 'og:author',
+          content: 'ZHENG & R-AS',
+        },
       ]}
     >
       <link rel="canonical" href='https://r-as.github.io' />
