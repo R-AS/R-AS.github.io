@@ -110,14 +110,15 @@ type: 'frontend'
   接下来调开代码, 点击 server.js
 
   ![pic_13](/blogs/frontend/frontend_2_pic_13.png#pic_center)
+
   在 app.use(express.static('build')) 前面增加 app.use(compression())
 
-  ```js
+```js
   const fs = require('fs');
   const compression = require('compression');
   app.use(compression());
   app.use(express.static('build'));
-  ```
+```
 
   对 文本进行压缩之后, 在 Network 查看 bundle.js, 发现网络发送只有 150KB, 为文本原本大小是 1.2MB
 
