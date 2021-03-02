@@ -9,7 +9,8 @@ import SpanList from '../components/common/SpanList'
 const useStyles = makeStyles(theme => ({
   image: {
     maxWidth: '400px',
-    margin: '10% auto',
+    margin: 'auto',
+    marginTop: '3%',
     marginBottom: '1.45rem',
   },
   h1: {
