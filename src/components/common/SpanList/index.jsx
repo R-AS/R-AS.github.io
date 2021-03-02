@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-import { Chip } from '@material-ui/core'
+import { Chip, Slide } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,13 +54,16 @@ const SpanList = () => {
     <div className={classes.root}>
       {
         data.allDirectory.edges.map((n, m) => (
-          <Link className={classes.link} to={`/blogs/${n.node.base}`} key={m}>
-            <Chip
-              label={n.node.base}
-              className={classes.chip}
-              style={{ backgroundColor: colors[m % colors.length] }}
-            />
-          </Link>
+          <Slide direction='right' in timeout={200 + (m * 30)}>
+            <Link className={classes.link} to={`/blogs/${n.node.base}`} key={m}>
+              <Chip
+                label={n.node.base}
+                className={classes.chip}
+                style={{ backgroundColor: colors[m % colors.length] }}
+              />
+            </Link>
+          </Slide>
+          
         ))
       }
     </div>
