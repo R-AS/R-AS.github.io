@@ -54,8 +54,8 @@ const SpanList = () => {
     <div className={classes.root}>
       {
         data.allDirectory.edges.map((n, m) => (
-          <Slide direction='right' in timeout={200 + (m * 30)}>
-            <Link className={classes.link} to={`/blogs/${n.node.base}`} key={m}>
+          <Slide direction='right' in timeout={200 + (m * 30)} key={m}>
+            <Link className={classes.link} to={`/blogs/${n.node.base}`}>
               <Chip
                 label={n.node.base}
                 className={classes.chip}
