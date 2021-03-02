@@ -25,7 +25,7 @@ function Preview(props) {
     <>
       <Header siteTitle='R-AS Blog' />
       <CardList list={tagList} type={base.split('/')[1]}/>
-      <PaperStepper pageCount={pageCount} skipFn={skipFn}/>
+      <PaperStepper pageCount={pageCount} skipFn={skipFn} />
     </>
   )
 }

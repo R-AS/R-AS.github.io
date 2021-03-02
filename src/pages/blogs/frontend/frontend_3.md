@@ -27,7 +27,7 @@ Media Session API 的 MediaSession 接口允许页面为标准媒体交互提供
 
   下面的例子创建了一个新的 media session, 并且给其绑定了一些动作句柄:
 
-  ``` javascript
+  ```javascript
     if ('mediaSession' in navigator){
       navigator.mediaSession.metadata = new MediaMetadata({
         title: "Podcast Episode Title",

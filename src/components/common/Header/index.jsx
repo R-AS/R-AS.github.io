@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 const useStyles = makeStyles(theme => ({
   root: {
     marginBottom: '20px',
-    backgroundColor: '#333333',
+    backgroundColor: '#000000',
   },
   span: {
     padding: '0px 10px',

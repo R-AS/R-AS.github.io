@@ -10,8 +10,15 @@ const useStyles = makeStyles(theme => ({
     width: '70vw',
   },
   stepper: {
-    background: '#fff',
+    background: '#303030',
+    color: '#fff',
   },
+  button: {
+    color: '#fff !important',
+  },
+  disabled: {
+    color: '#b2b2b2 !important'
+  }
 }))
 
 function PaperStepper (props) {
@@ -42,13 +49,23 @@ function PaperStepper (props) {
         variant='text'
         activeStep={activeStep}
         nextButton={
-          <Button size='small'  onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+          <Button
+            className={activeStep === maxSteps - 1 ? classes.disabled : classes.button}
+            size='small'
+            onClick={handleNext}
+            disabled={activeStep === maxSteps - 1}
+          >
             Next
             {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
           </Button>
         }
         backButton={
-          <Button size='small' onClick={handleBack} disabled={activeStep === 0}>
+          <Button
+            className={activeStep === 0 ? classes.disabled : classes.button}
+            size='small'
+            onClick={handleBack}
+            disabled={activeStep === 0}
+          >
             {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
             Back
           </Button>

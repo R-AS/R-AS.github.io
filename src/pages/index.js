@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
   h1: {
     padding: '20px 0',
     textAlign: 'center',
+    color: '#ffffff',
   }
 }))
 

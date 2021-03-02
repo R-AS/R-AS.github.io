@@ -16,7 +16,7 @@ type: 'typescript'
 let user: object = { name: 'Jelly' }
 user.toString() // correct
 user.name // error: Property 'name' does not exist on type 'object'
-``` 
+```
 
 分析以下代码：
 ```typescript

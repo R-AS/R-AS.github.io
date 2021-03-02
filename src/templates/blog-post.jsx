@@ -5,7 +5,10 @@ import { makeStyles } from '@material-ui/core/styles'
 import Layout from '../components/common/Layout'
 import SEO from '../components/common/Seo'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
+  root: {
+    color: '#fff',
+  },
   paragraph: {
     margin: 0,
   },
@@ -15,8 +18,8 @@ const useStyles = makeStyles(theme => ({
   content: {
     marginTop: '5%',
     fontSize: '.9rem',
-    color: theme.palette.text.primary,
-  }
+    color: '#ffffff',
+  },
 }))
 
 export default ({ data }) => {
@@ -25,7 +28,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={post.frontmatter.title} description={post.excerpt} keyword={post.frontmatter.title} />
-      <div>
+      <div className={classes.root}>
         <h1>{post.frontmatter.title}</h1>
         <p className={classes.paragraph}>{post.frontmatter.date}</p>
         <p className={classNames(classes.paragraph, classes.type)}>{post.frontmatter.type}</p>

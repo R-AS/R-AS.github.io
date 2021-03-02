@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     marginTop: '50px',
     textAlign: 'center',
+    color: '#ffffff',
   }
 }))
 

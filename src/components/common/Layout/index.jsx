@@ -6,9 +6,6 @@ import Header from '../Header'
 import './index.css'
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    backgroundColor: 'rgba(230, 230, 230, 0.1)',
-  },
   root: {
     margin: '0 auto',
     maxWidth: 960,
@@ -19,6 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
   footer: {
     textAlign: 'center',
+    color: '#ffffff',
   }
 }))
 
@@ -35,7 +33,7 @@ const Layout = ({ children }) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.container}>
+    <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className={classes.root}>
         <main>{children}</main>
@@ -44,7 +42,7 @@ const Layout = ({ children }) => {
         © {new Date().getFullYear()}, Built with R-AS
         {' '}
       </footer>
-    </div>
+    </>
   )
 }
 
