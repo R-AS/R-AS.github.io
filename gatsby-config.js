@@ -26,6 +26,10 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        tableOfContents: {
+          heading: null,
+          maxDepth: 6,
+        },
         plugins: [
           {
             resolve: 'gatsby-remark-table-of-contents',
@@ -81,6 +85,7 @@ module.exports = {
               }
             }
           },
+          'gatsby-remark-use-frontmatter-path',
           'gatsby-remark-heading-slug',
           'gatsby-remark-reading-time',
           'gatsby-remark-grid-tables',

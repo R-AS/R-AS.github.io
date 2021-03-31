@@ -25,6 +25,7 @@
     "gatsby-remark-heading-slug": "^0.2.0",
     "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-remark-table-of-contents": "0.0.9",
+    "gatsby-remark-use-frontmatter-path": "^1.0.0",
     "gatsby-remark-vscode": "^2.1.2",
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-transformer-remark": "^3.0.0",
