@@ -40,10 +40,17 @@ export default ({ data }) => {
   const colors = [primary.light, secondary.light, error.light, warning.light, info.light, success.light]
   const bases = data.allDirectory.edges.map(n => n.node.base)
   const colorIndex = bases.indexOf(post.frontmatter.type) || 0
+  
+  const path = (post.fileAbsolutePath.match(/pages\/(.+).md/) || [])[1] || ''
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.excerpt} keyword={post.frontmatter.title} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.excerpt}
+        keyword={post.frontmatter.title}
+        path={path}
+      />
       <div className={classes.root}>
         <Slide direction='down' in timeout={300}>
           <h1>{post.frontmatter.title}</h1>
@@ -67,6 +74,7 @@ export default ({ data }) => {
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      fileAbsolutePath
       html
       frontmatter {
         title

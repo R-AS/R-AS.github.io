@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, title, keyword }) {
+function SEO({ description, lang, title, keyword, path = '' }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +19,7 @@ function SEO({ description, lang, title, keyword }) {
             title
             description
             author
+            url
           }
         }
       }
@@ -26,8 +27,8 @@ function SEO({ description, lang, title, keyword }) {
   )
 
   const { author, url } = site.siteMetadata
-
   const metaDescription = description || site.siteMetadata.description
+  const urlStr = `${url}/${path}`
 
   return (
     <Helmet
@@ -36,58 +37,60 @@ function SEO({ description, lang, title, keyword }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: 'description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:title',
-          content: title,
-        },
-        {
-          property: 'og:description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          property: 'og:keywords',
-          content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
-        },
-        {
-          property: 'title',
-          content: title,
-        },
-        {
-          property: 'description',
-          content: metaDescription,
-        },,
-        {
-          property: 'keywords',
-          content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
-        },
-        {
-          property: 'author',
-          content: 'ZHENG & R-AS',
-        },
-        {
-          property: 'og:author',
-          content: 'ZHENG & R-AS',
-        },
-      ]}
+      // meta={[
+      //   {
+      //     name: 'description',
+      //     content: metaDescription,
+      //   },
+      //   {
+      //     property: 'og:title',
+      //     content: title,
+      //   },
+      //   {
+      //     property: 'og:description',
+      //     content: metaDescription,
+      //   },
+      //   {
+      //     property: 'og:type',
+      //     content: 'website',
+      //   },
+      //   {
+      //     property: 'og:keywords',
+      //     content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
+      //   },
+      //   {
+      //     property: 'title',
+      //     content: title,
+      //   },
+      //   {
+      //     property: 'description',
+      //     content: metaDescription,
+      //   },,
+      //   {
+      //     property: 'keywords',
+      //     content: `R-AS's blog, frontend, aerial photography, ${keyword}`,
+      //   },
+      //   {
+      //     property: 'author',
+      //     content: 'ZHENG & R-AS',
+      //   },
+      //   {
+      //     property: 'og:author',
+      //     content: 'ZHENG & R-AS',
+      //   },
+      // ]}
     >
       <link rel="canonical" href='https://r-as.github.io' />
-      {title && <meta property="og:title" content={title} />}
-      {title && <meta property="title" content={title} />}
-      {metaDescription && <meta property="og:description" content={metaDescription} />}
-      {metaDescription && <meta property="description" content={metaDescription} />}
-      {author && <meta property="og:author" content={author} />}
-      {author && <meta property="author" content={author} />}
-      {url && <meta property="og:url" content={url} />}
-      {url && <meta property="url" content={url} />}
+      {title && <meta name="title" content={title} />}
+      {author && <meta name="author" content={author} />}
+      {metaDescription && <meta name="description" content={metaDescription} />}
+      {urlStr && <meta name="url" content={urlStr} />}
+      {keyword && <meta name="keywords" content={`R-AS's blog, frontend, aerial photography, ${keyword}`} />}
+
+      {title && <meta name="og:title" content={title} />}
+      {metaDescription && <meta name="og:description" content={metaDescription} />}
+      {author && <meta name="og:author" content={author} />}
+      {urlStr && <meta name="og:url" content={urlStr} />}
     </Helmet>
   )
 }
