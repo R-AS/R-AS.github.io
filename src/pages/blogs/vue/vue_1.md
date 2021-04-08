@@ -4,7 +4,7 @@ date: '2020-10-23'
 thumbnail: 'vue/index.png'
 type: 'vue'
 ---
-### Table of Contents
+
 ```toc
 ```
 ---

@@ -4,7 +4,7 @@ date: '2020-06-18'
 thumbnail: 'javascript/index.png'
 type: 'javascript'
 ---
-### Table of Contents
+
 ```toc
 ```
 ---

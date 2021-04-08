@@ -654,3 +654,20 @@ pre tt:after {
   font-size: 1.3rem;
   background-color: #333333;
 } 
+
+.toc {
+  position: fixed;
+  left: 86%;
+  max-width: 200px;
+}
+
+.toc ul {
+  list-style: decimal;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .toc {
+    display: none;
+  }
+}

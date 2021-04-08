@@ -4,7 +4,7 @@ date: '2021-02-23'
 thumbnail: 'typescript/index.png'
 type: 'typescript'
 ---
-### Table of Contents
+<!--  -->
 ```toc
 ```
 ---

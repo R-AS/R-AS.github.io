@@ -4,7 +4,7 @@ date: '2020-07-21'
 thumbnail: 'javascript/index.png'
 type: 'frontend'
 ---
-### Table of Contents
+
 ```toc
 ```
 ---

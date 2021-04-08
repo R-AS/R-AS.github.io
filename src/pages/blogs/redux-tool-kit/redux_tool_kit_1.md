@@ -4,7 +4,7 @@ date: '2020-03-18'
 thumbnail: 'redux_tool_kit/index.png'
 type: 'Redux ToolKit'
 ---
-### Table of Contents
+
 ```toc
 ```
 ---
