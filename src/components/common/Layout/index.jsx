@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </div>
       <footer className={classes.footer}>
-        © {new Date().getFullYear()}, Built with R-AS
+        © {new Date().getFullYear()}, Built with ZHENG &amp; R-AS
         {' '}
       </footer>
     </>
