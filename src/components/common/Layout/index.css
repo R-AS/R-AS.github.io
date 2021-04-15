@@ -625,7 +625,9 @@ pre tt:after {
     font-size: 100%;
   }
 }
-
+hr {
+  background: #6f6f6f;
+}
 .copyButton {
   width: 48px;
   color: #fff;

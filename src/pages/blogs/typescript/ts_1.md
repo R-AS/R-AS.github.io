@@ -8,7 +8,6 @@ type: 'typescript'
 ```toc
 ```
 ---
-
 ### {}, object, Object 有什么区别
 
 这三种类型表示你的值是**一个没有任何自定义属性**的对象，只从 Object.prototype 继承了基本的方法:

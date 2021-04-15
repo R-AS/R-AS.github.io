@@ -5,11 +5,11 @@ thumbnail: 'typescript/index.png'
 type: 'typescript'
 ---
 
-```toc
-```
+<!-- ```toc
+``` -->
 ---
 **DRY —— Don't repeat yourself**, 以下记录在 typescript 开发中有那些可以提取出公共逻辑：
-### 1
+
 ```typescript
 function distance(a: {x: number, y: number}, b: {x: number, y: number}) {
   return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
@@ -38,7 +38,7 @@ const get: HTTPFunction = (url, opts) => {/*...*/}
 const post: HTTPFunction = (url, opts) => {/*...*/}
 ```
 ---
-### 2
+
 ```typescript
 interface Person {
   firstName: string
@@ -64,7 +64,7 @@ interface PersonWithBirthDate extends Person {
 type PersonWithBirthDate = Person & { birth: Date }
 ```
 ---
-### 3 
+
 ```typescript
 interface State {
   userId: string
@@ -93,7 +93,7 @@ type TopNavState = {
 type TopNavState = Pick<State, 'userId', 'pageTitle', 'recentFiles'>
 ```
 ---
-### 4
+
 ```typescript
 interface Options {
   width: number

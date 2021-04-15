@@ -94,9 +94,9 @@ Exclude 的作用是用来排除指定项。
 
 源码：
 ```typescript
-type Exclude<T, U> = T extends U ? never : Y
+type Exclude<T, U> = T extends U ? never : T
 ```
-以上代码的意思是 如果 T 是 U 的子类型的话，就返回 never，否则返回 Y
+以上代码的意思是 如果 T 是 U 的子类型的话，就返回 never，否则返回 T
 
 示例：
 ```typescript
