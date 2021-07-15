@@ -9,7 +9,7 @@ type: '小程序'
 ```
 ---
 #### setData 工作原理？
-![pic_1](/blogs/frontend/frontend_1_pic_1.png#pic_center)
+![pic_1](/blogs/mini_program/mini_1_pic_1.png#pic_center)
 如上图所示，小程序的视图层使用 WebView 作为渲染载体，而逻辑层由独立的 JavaScriptCore 作为运行环境。在架构上 WebView 和 JavaScriptCore 都是独立的模块，并不具备数据直接共享的通道。当前，视图层和逻辑层的数据运输，实际上通过两边提供的 evaluateJavaScript 所实现。即用户传输的数据，需要将其转换为字符串形式传递，同时转换后的数据内容拼接成一份 JS 脚本，再通过执行 JS 脚本的形式传递到两边独立环境。
 
 而 evaluateJavaScript 的执行会受很多方面的影响，数据到达视图层并不是实时的。
@@ -29,7 +29,18 @@ type: '小程序'
 2. setData 数据大小：
 由于小程序运行逻辑线程与渲染线程之上，setData的调用会把数据从逻辑层传到渲染层，数据太大会增加通信时间。
 **得分条件：setData的数据在JSON.stringify后不超过 256KB**
+3. 超过如何处理：
+例如有这种小程序使用了长列表，需要分页，有以下写法：
 
+```js
+this.setData({ list: [...list1, ...list2] })
+```
+
+以上写法有可能造成 list 超过 1024kb 的限制。因此可以把 list 改成二维数组，把每一页的数据变成数组的每一项，例如：
+
+```js
+this.setData({ [`list[${page}]`]: [...] })
+```
 ---
 #### 小程序页面间有哪些传递数据的方法？
 
