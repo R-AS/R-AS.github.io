@@ -1,6 +1,6 @@
 ---
 title: '小程序静默登录'
-date: '2021-07-18'
+date: '2021-07-19'
 thumbnail: 'mini_program/index.png'
 type: '小程序'
 ---
@@ -28,7 +28,7 @@ type: '小程序'
 在**wx.login**获取到**code**后，会发送到后端，后端通过接口去微信后端换取**openid**和**sessionKey**(现在会将**unionid**也一并放回)后，把自定义登录态**3rd_session**（本业务命名为**auth-token**）放回给前端，就已经完成登录行为了。
 
 以下是官方给出的 wx.login 的最佳实践：
-![pic_1](/blogs/mini_program/mini_2_pic_1.jpeg#pic_center)
+![pic_1](/blogs/mini_program/mini_2_pic_1.png#pic_center)
 
 总结为以下三步：
 - 小程序端调用 **wx.login()** 获取 临时登录凭证**code**，并回传到开发者服务器。
