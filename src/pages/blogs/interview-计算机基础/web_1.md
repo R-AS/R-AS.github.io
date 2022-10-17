@@ -2,7 +2,7 @@
 title: 'HTTP与HTTPS'
 date: '2022-10-09'
 thumbnail: 'web/index.png'
-type: '计算机基础'
+type: 'interview-计算机基础'
 ---
 ```toc
 ```

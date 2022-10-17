@@ -2,7 +2,7 @@
 title: 'TCP 三次握手、四次挥手'
 date: '2022-10-12'
 thumbnail: 'web/index.png'
-type: '计算机基础'
+type: 'interview-计算机基础'
 ---
 ```toc
 ```
