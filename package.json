@@ -75,7 +75,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md}": [
+    "*.{js,jsx,less}": [
       "eslint --fix",
       "prettier --write"
     ]

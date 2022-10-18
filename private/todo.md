@@ -14,13 +14,50 @@
   > loading 图缓存，避免请求 loading 图到渲染中间的白屏时间
 
   - Git 规范化（husky, commit lint）
-  >
+  > husky 为 git hooks，可以在每次触发 git 命令时执行
+  > pre commit 的时候，执行 lint-staged，lint-staged 只检查暂存区的代码
+  > lint-staged 指定对哪些文件进行检查，进行 eslint 检查，prettier 进行简单对修复
+  > commit 时执行 commitlint.config.js，检查 commit 规范
+
   - 小程序自动部署（gitlab, docker）
-  >
+    1. inquirer 获得 CI/本地 打包，分支，平台
+    2. CI 部署：
+      - 走 ci.js，执行 triggerPipeline，带上打包的平台及分支，请求 trigger/pipeline 接口
+      - 执行 gitlab-ci.yml 的 job, build-wechat-miniapp
+      - job build-wechat-miniapp 设置变量（环境等）
+      - 执行 build-mini-weapp.sh，进行 taro 打包，打包后压缩成 zip 上传七牛云
+      - 如果需要预览，运行 generate_preview.js
+      - 应用 miniprogram-ci 进行预览，二维码放至 dist 目录下，将二维码上传至七牛云
+      - 钉钉通知，返回包地址以及预览码
+    3. 本地打包：
+      - 执行 build-mini-weapp.sh，进行 taro 打包，打包后压缩成 zip 上传七牛云
+      - 如果需要预览，运行 generate_preview.js
+      - 应用 miniprogram-ci 进行预览，二维码放至 dist 目录下
+      - 利用 qrcode-terminal 将二维码绘制于终端
+    4. 上传代码：
+      - 选择平台，输入版本
+      - 走 ci.js，执行 triggerUploadMiniApp 设置版本变量，执行 triggerPipeline，请求 trigger/pipeline 接口
+      - 执行 gitlab-ci.yml 的 job, upload-wechat-miniapp
+      - job upload-wechat-miniapp 设置变量（环境、平台等）
+      - 执行 upload-miniapp.sh，进行 taro 打包，打包后压缩成 zip 上传七牛云
+      - 运行 uploadMiniApp.js，利用 miniprogram-ci 进行代码上传，并生成预览图
+      - 钉钉通知上传成功
   - 字体脚本
-  > 利用 Fontmin + inquire + 七牛云，实现字体包提取
+    1. DOM 埋入 style={{ fontFamily: xxx }}
+    2. font 目录下放入字体源包
+    3. 执行脚本，截取该 DOM 下的文字，写入 json 中去重
+    4. 利用 Fontmin 提取字体包
+    5. 将字体包上传至七牛云，并在根样式文件声明字体
+
   - 会员公共配置
-  > 提取会员模块公共配置，在活动频繁时实现快速换肤
+    1. 将会员标签、主题色、活动氛围图提取出来，抽成公共模块
+    2. 每当活动需要修改时可快速定位，进行换肤
+
+  - 小程序公告通知
+    1. cheerio 抓取微信小程序公告第一页的帖子标题及连接
+    2. 每次请求在 json 中过滤去重，得出新公告
+    3. gitlab 配置定时任务，以及缓存
+    4. 每天 10 点定时执行，如果有更新则通知钉钉群
 
 - saas
   - 第三方平台调研
@@ -29,3 +66,7 @@
   - CI 构建与脚本完善
 
 - 专题活动管理后台
+
+
+---
+项目中遇到的难点：
