@@ -36,10 +36,17 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-react": "^7.31.10",
     "gatsby-plugin-manifest": "^2.4.11",
     "gatsby-remark-code-buttons": "^2.0.4",
     "gatsby-remark-prismjs": "^3.3.30",
     "gh-pages": "^2.2.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "markdownlint": "^0.18.0",
     "prettier": "^1.19.1",
     "prismjs": "^1.18.0",
@@ -57,7 +64,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -65,5 +73,11 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
