@@ -1,19 +1,19 @@
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode, basePath: 'pages/blogs' })
+  if (node.internal.type === "MarkdownRemark") {
+    const slug = createFilePath({ node, getNode, basePath: "pages/blogs" })
     createNodeField({
       node,
-      name: 'slug',
+      name: "slug",
       value: slug,
     })
   }
 }
 
-exports.createPages = async({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
@@ -26,7 +26,7 @@ exports.createPages = async({ graphql, actions }) => {
           }
         }
       }
-      allDirectory(filter: {relativeDirectory: {regex: "/pages\/blogs/"}}) {
+      allDirectory(filter: { relativeDirectory: { regex: "/pages/blogs/" } }) {
         edges {
           node {
             base
@@ -39,7 +39,7 @@ exports.createPages = async({ graphql, actions }) => {
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: `/blogs${node.fields.slug}`,
-      component: path.resolve('./src/templates/blog-post.jsx'),
+      component: path.resolve("./src/templates/blog-post.jsx"),
       context: {
         slug: node.fields.slug,
       },
@@ -49,10 +49,10 @@ exports.createPages = async({ graphql, actions }) => {
   result.data.allDirectory.edges.forEach(({ node }) => {
     createPage({
       path: `/blogs/${node.base}`,
-      component: path.resolve('./src/templates/preview.jsx'),
-      context:{
-        base: `/${node.base}/`,
-      }
+      component: path.resolve("./src/templates/preview.jsx"),
+      context: {
+        base: `/^\\/${node.base}\\//`,
+      },
     })
   })
 }
