@@ -1,6 +1,6 @@
 ---
 title: 'BFC(块级格式上下文)'
-date: '2021-11-01'
+date: '2022-11-01'
 thumbnail: 'css/index.png'
 type: 'css'
 ---

@@ -1,6 +1,6 @@
 ---
 title: 'CSS 选择器及优先级'
-date: '2021-10-18'
+date: '2022-10-18'
 thumbnail: 'css/index.png'
 type: 'css'
 ---
