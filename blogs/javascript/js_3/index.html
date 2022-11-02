@@ -9,7 +9,7 @@
 <h2 id="概述">概述</h2>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="56147447711807270000"
+              data-toaster-id="29174392813225312000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -22,7 +22,7 @@
   await addPizzaToCart(chosenPizza) // async call
   await addDrinkToCart(chosenDrink) // async call
   orderItems() // async call
-})()`, `56147447711807270000`)"
+})()`, `29174392813225312000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -44,7 +44,7 @@
 <strong>正确做法应该是先同时执行函数，在 await 返回值， 这样可以并行执行异步函数</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="6036073214851889000"
+              data-toaster-id="50388560247109360000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -60,7 +60,7 @@
 // 或者使用 Promise.all 可以让代码更可读：
 (async () => {
   Promise.all([selectPizza(), selectDrink()]).then(orderItems) // async call
-})()`, `6036073214851889000`)"
+})()`, `50388560247109360000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -86,7 +86,7 @@
 现在回看回调地狱带来的灾难：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="10221178592072122000"
+              data-toaster-id="65375488114114420000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -95,7 +95,7 @@
   b(() => {
     c()
   })
-})`, `10221178592072122000`)"
+})`, `65375488114114420000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -112,14 +112,14 @@
 <p>利用 async/await 解决回调地狱：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="89843916303892560000"
+              data-toaster-id="35100740123256656000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`await a()
 await b()
-await c()`, `89843916303892560000`)"
+await c()`, `35100740123256656000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -134,7 +134,7 @@ await c()`, `89843916303892560000`)"
 <p>虽然解决了回调地狱，但实际上还是嵌套关系，接下来看下一个例子：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="7127093434274290000"
+              data-toaster-id="71850052913985870000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -145,7 +145,7 @@ await c()`, `89843916303892560000`)"
 
 c(() => {
   d()
-})`, `7127093434274290000`)"
+})`, `71850052913985870000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -164,7 +164,7 @@ c(() => {
 <p>如果写成下面的方法，虽然能保证功能一致，但变成了最低效的执行方式：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="9826718880259455000"
+              data-toaster-id="75043501619220630000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -172,7 +172,7 @@ c(() => {
               onClick="copyToClipboard(`await a()
 await b()
 await c()
-await d()`, `9826718880259455000`)"
+await d()`, `75043501619220630000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -188,7 +188,7 @@ await d()`, `9826718880259455000`)"
 <p>最后翻译成回调，就变成了：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="35398296338169045000"
+              data-toaster-id="25996008026346406000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -199,7 +199,7 @@ await d()`, `9826718880259455000`)"
       d()
     })
   })
-})`, `35398296338169045000`)"
+})`, `25996008026346406000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -219,7 +219,7 @@ await d()`, `9826718880259455000`)"
 <p>所以可以这样写，优化一下性能</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="88109524651734680000"
+              data-toaster-id="13041098599728796000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -230,7 +230,7 @@ const resC = c()
 await resA
 b()
 await resC
-d()`, `88109524651734680000`)"
+d()`, `13041098599728796000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -249,14 +249,14 @@ d()`, `88109524651734680000`)"
 <p>但其实这个逻辑也无法达到回调的效果，虽然 a 与 c 同时执行了，但 d 原本只要等待 c 执行完，现在如果 a 执行时间比 c 长，就变成了：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="31403242585274073000"
+              data-toaster-id="21014718251926802000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`a(() => {
   d()
-})`, `31403242585274073000`)"
+})`, `21014718251926802000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -271,7 +271,7 @@ d()`, `88109524651734680000`)"
 <p>可以隔离成两个函数或者利用 Promise.all 解决</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="3891428937829033500"
+              data-toaster-id="61396116461069020000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -297,7 +297,7 @@ async function cd() {
   d()
 }
 
-Promise.all([ab(), cd()])`, `3891428937829033500`)"
+Promise.all([ab(), cd()])`, `61396116461069020000`)"
             >
               <div
                 class="gatsby-code-button copyButton"

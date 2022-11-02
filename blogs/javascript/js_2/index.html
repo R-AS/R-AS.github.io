@@ -39,7 +39,7 @@
 <p><strong>main.js</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="57314108291562030000"
+              data-toaster-id="7500344945703508000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -49,7 +49,7 @@
   worker.onmessage = function(e) {
     console.log('来自 worker:', e.data)
     worker.terminate()  // 关闭 worker
-  }`, `57314108291562030000`)"
+  }`, `7500344945703508000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -67,7 +67,7 @@
 <p><strong>worker.js</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="28442388067694256000"
+              data-toaster-id="87122019718094770000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -78,7 +78,7 @@
   }
   // self 和 this 代表子线程自身，即子线程的全局对象
   console.log('this or self', self, this)
-  console.log('location', location)`, `28442388067694256000`)"
+  console.log('location', location)`, `87122019718094770000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -102,7 +102,7 @@
 <p><strong>worker.js</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="27710325857526110000"
+              data-toaster-id="82680644075086040000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -120,7 +120,7 @@
       default:
         postMessage(\`\${data.msg} -> 抱歉, 我听不懂\`)
     }
-  })`, `27710325857526110000`)"
+  })`, `82680644075086040000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -146,7 +146,7 @@
 <p><strong>main.js</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="972319225004092400"
+              data-toaster-id="43438069688690420000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -159,7 +159,7 @@
 
   worker.addEventListener('message', function(e) {
     console.log(e.data)
-  })`, `972319225004092400`)"
+  })`, `43438069688690420000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -183,7 +183,7 @@
 <p>Worker 内部如果要加载其他脚本，有一个专门的方法 <strong>importScripts()</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="27364850160838738000"
+              data-toaster-id="83755283567647950000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -191,7 +191,7 @@
               onClick="copyToClipboard(`  importScripts('script1.js')
 
   // 同时加载多个脚本
-  importScripts('script1.js', 'script2.js')`, `27364850160838738000`)"
+  importScripts('script1.js', 'script2.js')`, `83755283567647950000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -208,7 +208,7 @@
 <p>主线程可以监听 Worker 是否发生错误，如果发生错误 Worker 会触发主线程的 error 事件。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="26736497879532937000"
+              data-toaster-id="74990499328820080000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -222,7 +222,7 @@
   // 或者
   worker.addEventListener('error', function (event) {
     // ...
-  });`, `26736497879532937000`)"
+  });`, `74990499328820080000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -246,7 +246,7 @@
 <p>为了节省资源，使用完毕后记得关闭 Worker</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="75837156193209880000"
+              data-toaster-id="50710367050787330000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -255,7 +255,7 @@
 worker.terminate()
 
 // worker 线程
-self.close()`, `75837156193209880000`)"
+self.close()`, `50710367050787330000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -275,7 +275,7 @@ self.close()`, `75837156193209880000`)"
 <p>某种情况下，浏览器需要轮询服务器状态，以便第一时间得知状态改变，这个工作可以放在 Worker 里面。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="83479897113928000000"
+              data-toaster-id="44038251721345340000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -308,7 +308,7 @@ self.close()`, `75837156193209880000`)"
     // render data
   }
 
-  pollingWorker.postMessage('init');`, `83479897113928000000`)"
+  pollingWorker.postMessage('init');`, `44038251721345340000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -352,7 +352,7 @@ self.close()`, `75837156193209880000`)"
 <p><strong>主线程代码</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="26681737037130280000"
+              data-toaster-id="65466503377907710000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -360,7 +360,7 @@ self.close()`, `75837156193209880000`)"
               onClick="copyToClipboard(`  var worker = new Worker('worker.js');
   worker.onmessage = function (event) {
     document.getElementById('result').textContent = event.data;
-  };`, `26681737037130280000`)"
+  };`, `65466503377907710000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -376,7 +376,7 @@ self.close()`, `75837156193209880000`)"
 <p><strong>Worker 线程代码</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="6481295890372896000"
+              data-toaster-id="91382625644501980000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -403,7 +403,7 @@ self.close()`, `75837156193209880000`)"
     pending_workers -= 1;
     if (pending_workers <= 0)
       postMessage(result); // finished!
-  }`, `6481295890372896000`)"
+  }`, `91382625644501980000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -438,7 +438,7 @@ self.close()`, `75837156193209880000`)"
 <p>上面代码中，Worker 线程内部新建了10个 Worker 线程，并且依次向这10个 Worker 发送消息，告知了计算的起点和终点。计算任务脚本的代码如下。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="60290429673924215000"
+              data-toaster-id="46649506363016010000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -466,7 +466,7 @@ self.close()`, `75837156193209880000`)"
     }
     postMessage(result);
     close();
-  }`, `60290429673924215000`)"
+  }`, `46649506363016010000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -505,12 +505,12 @@ self.close()`, `75837156193209880000`)"
 <p>浏览器原生提供 <strong>Worker()</strong> 构造函数，用来供主线程生成 Worker 线程。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="41059278131550130000"
+              data-toaster-id="10393899866775990000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
-              onClick="copyToClipboard(`var myWorker = new Worker(jsUrl, options);`, `41059278131550130000`)"
+              onClick="copyToClipboard(`var myWorker = new Worker(jsUrl, options);`, `10393899866775990000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -523,7 +523,7 @@ self.close()`, `75837156193209880000`)"
 <p><strong>Worker()</strong> 构造函数，可以接受两个参数。第一个参数是脚本的网址（必须遵守同源政策），该参数是必需的，且只能加载 JS 脚本，否则会报错。第二个参数是配置对象，该对象可选。它的一个作用就是指定 Worker 的名称，用来区分多个 Worker 线程。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="21189067021892362000"
+              data-toaster-id="30392552922718430000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -532,7 +532,7 @@ self.close()`, `75837156193209880000`)"
 var myWorker = new Worker('worker.js', { name : 'myWorker' });
 
 // Worker 线程
-self.name // myWorker`, `21189067021892362000`)"
+self.name // myWorker`, `30392552922718430000`)"
             >
               <div
                 class="gatsby-code-button copyButton"

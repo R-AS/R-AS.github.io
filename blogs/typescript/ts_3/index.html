@@ -4,14 +4,14 @@
 <p><strong>DRY —— Don't repeat yourself</strong>, 以下记录在 typescript 开发中有那些可以提取出公共逻辑：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="91014976235150380000"
+              data-toaster-id="43443453569120985000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`function distance(a: {x: number, y: number}, b: {x: number, y: number}) {
   return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
-}`, `91014976235150380000`)"
+}`, `43443453569120985000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -26,7 +26,7 @@
 <p>从以上代码可以发现，重复使用了 <strong>{x:number, y: number}</strong> 来定义 a 和 b 的类型，因此我们可以定义一个接口 Point2D 接口：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="38191356344412440000"
+              data-toaster-id="25697452448917193000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -36,7 +36,7 @@
   y: number
 }
 
-function distance(a: Point2D, b: Point2D) {/*...*/}`, `38191356344412440000`)"
+function distance(a: Point2D, b: Point2D) {/*...*/}`, `25697452448917193000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -54,13 +54,13 @@ function distance(a: Point2D, b: Point2D) {/*...*/}`, `38191356344412440000`)"
 <p>然而在实际开发中，重复的类型有可能会被语法所覆盖，导致不容易被发现。例如：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="35106752109514860000"
+              data-toaster-id="1851429523095871000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`function get(url: string, opts: Options): Promise<Response> {/*...*/}
-function post(url: string, opts: Options): Promise<Response> {/*...*/}`, `35106752109514860000`)"
+function post(url: string, opts: Options): Promise<Response> {/*...*/}`, `1851429523095871000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -74,7 +74,7 @@ function post(url: string, opts: Options): Promise<Response> {/*...*/}`, `351067
 <p>对于上面的 get 和 post 方法，为了避免重复的代码，可以提取统一的类型签名：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="98265204000483930000"
+              data-toaster-id="79328531696378170000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -82,7 +82,7 @@ function post(url: string, opts: Options): Promise<Response> {/*...*/}`, `351067
               onClick="copyToClipboard(`type HTTPFunction = (url: string, opts: Options) => Promise<Response>
 
 const get: HTTPFunction = (url, opts) => {/*...*/}
-const post: HTTPFunction = (url, opts) => {/*...*/}`, `98265204000483930000`)"
+const post: HTTPFunction = (url, opts) => {/*...*/}`, `79328531696378170000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -98,7 +98,7 @@ const post: HTTPFunction = (url, opts) => {/*...*/}`, `98265204000483930000`)"
 <hr>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="44354222149411670000"
+              data-toaster-id="75381363151322970000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -112,7 +112,7 @@ interface PersonWithBirthDate {
   firstName: string
   lastName: string
   birth: Date
-}`, `44354222149411670000`)"
+}`, `75381363151322970000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -134,7 +134,7 @@ interface PersonWithBirthDate {
 <p>上面例子中 <strong>PersonWithBirthDate</strong> 相对于 <strong>Person</strong> 来说只多了一个 <strong>birth</strong> 属性，其他属性相同，那我们可以这样改造：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="1218384928290672000"
+              data-toaster-id="22761382985062980000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -147,7 +147,7 @@ interface PersonWithBirthDate extends Person {
   birthDate
 }
 // 或者
-type PersonWithBirthDate = Person & { birth: Date }`, `1218384928290672000`)"
+type PersonWithBirthDate = Person & { birth: Date }`, `22761382985062980000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -168,7 +168,7 @@ type PersonWithBirthDate = Person & { birth: Date }`, `1218384928290672000`)"
 <hr>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="57338963465747540000"
+              data-toaster-id="72956827305013160000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -183,7 +183,7 @@ interface TopNavState {
   userId: string
   pageTitle: string
   recentFiles: string[]
-}`, `57338963465747540000`)"
+}`, `72956827305013160000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -206,7 +206,7 @@ interface TopNavState {
 <p>以上例子中 <strong>TopNavState</strong> 相比 <strong>State</strong> 只是缺少了 <strong>pageContents</strong> 属性，但我们却重复声明其他三个相同的属性。那可以这样做：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="70566417530416680000"
+              data-toaster-id="17514213004011348000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -221,7 +221,7 @@ type TopNavState = {
   [k in 'userId' | 'pageTitle' | 'recentFiles']: State[k]
 }
 // 或者
-type TopNavState = Pick<State, 'userId', 'pageTitle', 'recentFiles'>`, `70566417530416680000`)"
+type TopNavState = Pick<State, 'userId', 'pageTitle', 'recentFiles'>`, `17514213004011348000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -244,7 +244,7 @@ type TopNavState = Pick<State, 'userId', 'pageTitle', 'recentFiles'>`, `70566417
 <hr>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="80454026702781250000"
+              data-toaster-id="33283719567131230000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -261,7 +261,7 @@ interface OptionsUpdate {
   height?: number
   color?: string
   label?: string
-}`, `80454026702781250000`)"
+}`, `33283719567131230000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -286,14 +286,14 @@ interface OptionsUpdate {
 <p>改造：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="22788611195337794000"
+              data-toaster-id="38560630163902960000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`type OptionsUpdate = {[k in keyof Options]?: Options[k]}
 // 或者
-type OptionsUpdate = Partial<OptionsUpdate>`, `22788611195337794000`)"
+type OptionsUpdate = Partial<OptionsUpdate>`, `38560630163902960000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
