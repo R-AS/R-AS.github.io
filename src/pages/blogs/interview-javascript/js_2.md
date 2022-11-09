@@ -101,5 +101,4 @@ Object() ----prototype--->Object.prototype
 
 ---
 **摘抄自**
-- [JavaScript深入之从原型到原型链
-](https://github.com/mqyqingfeng/Blog/issues/2)
+- [JavaScript深入之从原型到原型链](https://github.com/mqyqingfeng/Blog/issues/2)
