@@ -4,6 +4,9 @@ date: '2022-11-02'
 thumbnail: 'javascript/index.png'
 type: 'interview-javascript'
 ---
+```toc
+```
+---
 
 JS 数据类型分为 基本类型（值类型）和 引用类型（复杂数据类型）
 

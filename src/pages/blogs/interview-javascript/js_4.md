@@ -4,7 +4,9 @@ date: '2022-11-05'
 thumbnail: 'javascript/index.png'
 type: 'interview-javascript'
 ---
-
+```toc
+```
+---
 #### 定义
 
 1. **理论定义：**

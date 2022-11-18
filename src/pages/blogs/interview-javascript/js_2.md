@@ -4,7 +4,8 @@ date: '2022-11-03'
 thumbnail: 'javascript/index.png'
 type: 'interview-javascript'
 ---
-
+```toc
+```
 #### prototype
 
 ```js
