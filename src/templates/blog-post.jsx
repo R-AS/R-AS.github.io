@@ -31,6 +31,7 @@ const useStyles = makeStyles(() => ({
 export default ({ data }) => {
   const classes = useStyles()
   const post = data.markdownRemark
+  console.log('🚀 -> file: blog-post.jsx -> line 34 -> post', data)
 
   const {
     palette: {

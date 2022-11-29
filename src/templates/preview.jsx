@@ -5,7 +5,7 @@ import CardList from '../components/common/CardList'
 import PaperStepper from '../components/common/PaperStepper'
 
 function Preview(props) {
-  const { data, pathContext: { base } } = props
+  const { data, pathContext: { base } = {} } = props
   const tagCount = 8
   const allFiles = Object.assign([], data.allMarkdownRemark.edges)
   const pageCount = Math.ceil(allFiles.length / tagCount)
@@ -24,7 +24,7 @@ function Preview(props) {
   return (
     <>
       <Header siteTitle='R-AS Blog' />
-      <CardList list={tagList} type={base.split('/')[1]}/>
+      <CardList list={tagList} type={base?.split('/')[1]}/>
       <PaperStepper pageCount={pageCount} skipFn={skipFn} />
     </>
   )
