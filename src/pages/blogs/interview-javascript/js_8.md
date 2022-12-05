@@ -4,7 +4,9 @@ date: '2022-11-28'
 thumbnail: 'javascript/index.png'
 type: 'interview-javascript'
 ---
-
+```toc
+```
+---
 #### Event Loop
 
 ![pic_1](/blogs/interview-javascript/js_1_pic_1.png#pic_center)
