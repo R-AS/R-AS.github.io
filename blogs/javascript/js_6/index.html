@@ -24,7 +24,7 @@
 <p>用一个描述动物呼吸的场景：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="81054220759989800000"
+              data-toaster-id="83502631346799120000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -40,7 +40,7 @@ function Client() {
   animal.breathe('牛')
   animal.breathe('羊')
   animal.breathe('猪')
-}`, `81054220759989800000`)"
+}`, `83502631346799120000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -68,7 +68,7 @@ function Client() {
 <p>程序上线后，发现问题了，并不是所有的动物都呼吸空气的，比如鱼就是呼吸水的。修改时如果遵循单一职责原则，需要将 Animal 类细分为陆生动物类 Terrestrial，水生动物 Aquatic，代码如下：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="48117331964220700000"
+              data-toaster-id="92457521783644060000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -93,7 +93,7 @@ function Client() {
 
   const aquatic = new Aquatic()
   aquatic.breathe('鱼')
-}`, `48117331964220700000`)"
+}`, `92457521783644060000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -131,7 +131,7 @@ function Client() {
 <p>我们会发现如果这样修改花销是很大的，除了将原来的类分解之外，还需要修改客户端。而直接修改类Animal来达成目的虽然违背了单一职责原则，但花销却小的多，代码如下：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="45804891040363810000"
+              data-toaster-id="83871876437279740000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -152,7 +152,7 @@ function Client() {
   animal.breathe('羊')
   animal.breathe('猪')
   animal.breathe('鱼')
-}`, `45804891040363810000`)"
+}`, `83871876437279740000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -182,7 +182,7 @@ function Client() {
 <p>还有一种修改方式：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="27548090038442672000"
+              data-toaster-id="89829514917805000000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -203,7 +203,7 @@ function Client() {
   animal.breathe('羊')
   animal.breathe('猪')
   animal.breathe2('鱼')
-}`, `27548090038442672000`)"
+}`, `89829514917805000000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -247,7 +247,7 @@ function Client() {
 <p>举例说明继承的风险，我们需要完成一个两数相减的功能，由类A来负责：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="78916179843101770000"
+              data-toaster-id="20942676386773897000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -262,7 +262,7 @@ function Client() {
   const a = new A()
   console.log('100 - 50 = ', a.func1(100, 50))
   console.log('100 - 80 = ', a.func1(100, 80))
-}`, `78916179843101770000`)"
+}`, `20942676386773897000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -293,7 +293,7 @@ function Client() {
 </ul>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="98962085779368130000"
+              data-toaster-id="94178845055865980000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -320,7 +320,7 @@ function Client() {
   console.log('100 - 50 = ', b.func1(100, 50))
   console.log('100 - 80 = ', b.func1(100, 80))
   console.log('100 + 20 + 100 = ', b.func1(100, 20))
-}`, `98962085779368130000`)"
+}`, `94178845055865980000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -375,7 +375,7 @@ function Client() {
 <p>场景： 母亲给孩子讲故事，只要给她一本书，她就可以照着书给孩子讲故事了。代码如下：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="31328086898881425000"
+              data-toaster-id="23548161648265700000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -398,7 +398,7 @@ class Client {
     const mother = new Mother()
     mother.narrate(new Book())
   }
-}`, `31328086898881425000`)"
+}`, `23548161648265700000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -432,7 +432,7 @@ class Client {
 <p>运行良好，假如有一天，需求变成这样：不是给书而是给一份报纸，让这位母亲讲一下报纸上的故事，报纸的代码如下：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="62056615377125655000"
+              data-toaster-id="56051817638207210000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -464,7 +464,7 @@ class Client {
     mother.narrate(new Book())
     mother.narrate(new Newspaper()) // Argument of type 'Newspaper' is not assignable to parameter of type 'Book'.Types have separate declarations of a private property 'brand'.ts(2345)
   }
-}`, `62056615377125655000`)"
+}`, `56051817638207210000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -507,7 +507,7 @@ class Client {
 <p>Mother类与接口IReader发生依赖关系，而Book和Newspaper都属于读物的范畴，他们各自都去实现IReader接口，这样就符合依赖倒置原则了，代码修改为：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="51856354353131030000"
+              data-toaster-id="73018777829444190000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -543,7 +543,7 @@ class Client {
     mother.narrate(new Book())
     mother.narrate(new Newspaper())
   }
-}`, `51856354353131030000`)"
+}`, `73018777829444190000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -611,7 +611,7 @@ class Client {
 <p>读图可知，类 A 依赖接口 I 中的方法1、2、3，类 B 是对类 A 依赖的实现。类 C 依赖接口 I 中的方法1、4、5，类 D 是对类 C 依赖的实现。对于类 B 和类 D 来说，虽然他们都存在着用不到的方法(图中红色字体标记的方法)，但由于实现了接口 I，所以也必须要实现这些用不到的方法。如以下代码所示：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="87956237570149760000"
+              data-toaster-id="84573899818096020000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -690,7 +690,7 @@ class Client {
     }
 }
 
-new Client()`, `87956237570149760000`)"
+new Client()`, `84573899818096020000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -787,7 +787,7 @@ new Client()`, `87956237570149760000`)"
 <p>代码改成以下所示：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="1719789279250538800"
+              data-toaster-id="15838006646008540000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -852,7 +852,7 @@ class D implements I1, I3 {
     public method5() {
         console.log('类D实现接口I3的方法5')
     }
-}`, `1719789279250538800`)"
+}`, `15838006646008540000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -949,7 +949,7 @@ class D implements I1, I3 {
 <p>以下是违反迪米特法则的设计：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="59177165581014490000"
+              data-toaster-id="344037306932865000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -1019,7 +1019,7 @@ class Client {
         const e = new ComponyManager()
         e.printAllEmployee(new SubCompanyManager())
     }
-}`, `59177165581014490000`)"
+}`, `344037306932865000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -1098,7 +1098,7 @@ class Client {
 <p>修改后的代码如下：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="7425886397621561000"
+              data-toaster-id="64037210285748580000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -1171,7 +1171,7 @@ class Client {
         const e = new ComponyManager()
         e.printAllEmployee(new SubCompanyManager())
     }
-}`, `7425886397621561000`)"
+}`, `64037210285748580000`)"
             >
               <div
                 class="gatsby-code-button copyButton"

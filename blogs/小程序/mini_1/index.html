@@ -16,7 +16,7 @@
 <p>了解 setData 工作原理后，可得知频繁的使用 setData 会消耗性能。例如，用户的一次交互，如点击某个按钮，开发者的逻辑层要处理一些事情，然后再通过 setData 引起界面变化。这样一个过程需要四次通信：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="89675162816600570000"
+              data-toaster-id="87497257271844670000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -24,7 +24,7 @@
               onClick="copyToClipboard(`1. 渲染层 -> Native(点击事件)
 2. Native -> 逻辑层(点击事件)
 3. 逻辑层 -> Native(setData)
-4. Native -> 渲染层(setData)`, `89675162816600570000`)"
+4. Native -> 渲染层(setData)`, `87497257271844670000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -50,12 +50,12 @@
 </ol>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="13832301550296822000"
+              data-toaster-id="18120882639920800000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
-              onClick="copyToClipboard(`this.setData({ list: [...list1, ...list2] })`, `13832301550296822000`)"
+              onClick="copyToClipboard(`this.setData({ list: [...list1, ...list2] })`, `18120882639920800000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -68,12 +68,12 @@
 <p>以上写法有可能造成 list 超过 1024kb 的限制。因此可以把 list 改成二维数组，把每一页的数据变成数组的每一项，例如：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="51902011136965000000"
+              data-toaster-id="65769044764532360000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
-              onClick="copyToClipboard(`this.setData({ [\`list[\${page}]\`]: [...] })`, `51902011136965000000`)"
+              onClick="copyToClipboard(`this.setData({ [\`list[\${page}]\`]: [...] })`, `65769044764532360000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -90,7 +90,7 @@
 </ol>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="81183223817024470000"
+              data-toaster-id="43317865247330030000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -98,7 +98,7 @@
               onClick="copyToClipboard(`// 传递数据
 wx.navigateTo({
   url: \`/pages/listDetail/listDetail?id=\${id}&title=\${title}\`,
-})`, `81183223817024470000`)"
+})`, `43317865247330030000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -113,7 +113,7 @@ wx.navigateTo({
 <span class="grvsc-line"><span class="mtk1">})</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="99938448745013300000"
+              data-toaster-id="3505120345621804000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -123,7 +123,7 @@ Page({
   onLoad: function (options) {
     const { id, title } = options
   }
-})`, `99938448745013300000`)"
+})`, `3505120345621804000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -145,7 +145,7 @@ Page({
 <p>全局页面 app.js</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="57782204632468920000"
+              data-toaster-id="9674602693438116000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -157,7 +157,7 @@ Page({
       userInfo: {},
     }
   }
-})`, `57782204632468920000`)"
+})`, `9674602693438116000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -177,7 +177,7 @@ Page({
 <p>使用页面</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="99238795890159670000"
+              data-toaster-id="8316743628389700000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -188,7 +188,7 @@ Page({
     // 获取全局变量
     const { token, userInfo } = app.globalData
   }
-})`, `99238795890159670000`)"
+})`, `8316743628389700000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -214,7 +214,7 @@ Page({
 </ol>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="39457786496904190000"
+              data-toaster-id="70067867581659920000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -239,7 +239,7 @@ Page({
       },
     });
   },
-});`, `39457786496904190000`)"
+});`, `70067867581659920000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -271,13 +271,13 @@ Page({
 <span class="grvsc-line"><span class="mtk1">});</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="76329204325952900000"
+              data-toaster-id="43478152591046460000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`<!--被打开(上/父级)页面的wxml,绑定事件-->
-<view bindtap=&quot;onEventChannel&quot;>打开跳转到目标页面</view>`, `76329204325952900000`)"
+<view bindtap=&quot;onEventChannel&quot;>打开跳转到目标页面</view>`, `43478152591046460000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -290,7 +290,7 @@ Page({
 <span class="grvsc-line"><span class="mtk17">&lt;</span><span class="mtk4">view</span><span class="mtk1"> </span><span class="mtk12">bindtap</span><span class="mtk1">=</span><span class="mtk8">&quot;onEventChannel&quot;</span><span class="mtk17">&gt;</span><span class="mtk1">打开跳转到目标页面</span><span class="mtk17">&lt;/</span><span class="mtk4">view</span><span class="mtk17">&gt;</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="91931417620198080000"
+              data-toaster-id="15284418836176196000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -311,7 +311,7 @@ Page({
       });
     });
   },
-});`, `91931417620198080000`)"
+});`, `15284418836176196000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -343,7 +343,7 @@ Page({
 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="83464455491844180000"
+              data-toaster-id="80775016855761320000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -359,7 +359,7 @@ Page({
       &quot;text&quot;: &quot;其他&quot;
     }]
   }
-}`, `83464455491844180000`)"
+}`, `80775016855761320000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -382,14 +382,14 @@ Page({
 <span class="grvsc-line"><span class="mtk1">}</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="85083435808195400000"
+              data-toaster-id="22973642648146320000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`wx.switchTab({
   url: '/index'
-})`, `85083435808195400000`)"
+})`, `22973642648146320000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -405,14 +405,14 @@ Page({
 <p>关闭所有页面，打开到应用内的某个页面</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="32329289555548615000"
+              data-toaster-id="88160897310067200000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`wx.reLaunch({
   url: 'test?id=1',
-})`, `32329289555548615000`)"
+})`, `88160897310067200000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -426,7 +426,7 @@ Page({
 <span class="grvsc-line"><span class="mtk1">})</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="68728484440855640000"
+              data-toaster-id="91494061860567200000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -436,7 +436,7 @@ Page({
   onLoad (option) {
     console.log(option.query)
   }
-})`, `68728484440855640000`)"
+})`, `91494061860567200000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -455,14 +455,14 @@ Page({
 <p>关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="42642218624095120000"
+              data-toaster-id="51493221910312050000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`wx.redirectTo({
   url: 'test?id=1'
-})`, `42642218624095120000`)"
+})`, `51493221910312050000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -478,7 +478,7 @@ Page({
 <p>保留当前页面，跳转到应用内的某个页面。但是不能跳到 tabbar 页面。使用 wx.navigateBack 可以返回到原页面。<strong>小程序中页面栈最多十层。</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="81328941271972760000"
+              data-toaster-id="65247223474450930000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -499,7 +499,7 @@ Page({
     // 通过eventChannel向被打开页面传送数据
     res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
   }
-})`, `81328941271972760000`)"
+})`, `65247223474450930000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -529,7 +529,7 @@ Page({
 <p>关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages 获取当前的页面栈，决定需要返回几层。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="67200911839820490000"
+              data-toaster-id="56009515175632590000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -549,7 +549,7 @@ wx.navigateTo({
 // 在C页面内 navigateBack，将返回A页面
 wx.navigateBack({
   delta: 2
-})`, `67200911839820490000`)"
+})`, `56009515175632590000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -599,7 +599,7 @@ wx.navigateBack({
 <p>假设支持分包的小程序目录结构如下：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="24601832160310755000"
+              data-toaster-id="30240528518416500000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -618,7 +618,7 @@ wx.navigateBack({
 ├── pages
 │   ├── index
 │   └── logs
-└── utils`, `24601832160310755000`)"
+└── utils`, `30240528518416500000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -645,7 +645,7 @@ wx.navigateBack({
 <p>开发者通过在 app.json subpackages 字段声明项目分包结构：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="23799844743730980000"
+              data-toaster-id="92201926466281360000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -671,7 +671,7 @@ wx.navigateBack({
       ]
     }
   ]
-}`, `23799844743730980000`)"
+}`, `92201926466281360000`)"
             >
               <div
                 class="gatsby-code-button copyButton"

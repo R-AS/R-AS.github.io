@@ -36,12 +36,12 @@
 <p>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="44747959465161950000"
+              data-toaster-id="51944555132702480000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
-              onClick="copyToClipboard(`ws://example.com:80/some/path`, `44747959465161950000`)"
+              onClick="copyToClipboard(`ws://example.com:80/some/path`, `51944555132702480000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -57,7 +57,7 @@
 <h2 id="四客户端的简单示例">四、客户端的简单示例</h2>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="49526432380069800000"
+              data-toaster-id="6301710729018484000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -76,7 +76,7 @@ ws.onmessage = function(evt) {
 
 ws.onclose = function(evt) {
   console.log(&quot;Connection closed.&quot;);
-};  `, `49526432380069800000`)"
+};  `, `6301710729018484000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -106,12 +106,12 @@ ws.onclose = function(evt) {
 <p>WebSocket 对象作为一个构造函数，用于新建 WebSocket 实例。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="83868871394209640000"
+              data-toaster-id="17635938245468230000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
-              onClick="copyToClipboard(`var ws = new WebSocket('ws://localhost:8080');`, `83868871394209640000`)"
+              onClick="copyToClipboard(`var ws = new WebSocket('ws://localhost:8080');`, `17635938245468230000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -134,14 +134,14 @@ ws.onclose = function(evt) {
 <p>实例对象的onopen属性，用于指定连接成功后的回调函数</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="43986020651766825000"
+              data-toaster-id="51803573668055280000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`ws.onopen = function () {
   ws.send('Hello Server!');
-}`, `43986020651766825000`)"
+}`, `51803573668055280000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -156,14 +156,14 @@ ws.onclose = function(evt) {
 <p>如果要指定多个回调函数，可以使用addEventListener方法。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="23241992169900660000"
+              data-toaster-id="42021188240923000000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`ws.addEventListener('open', function (event) {
   ws.send('Hello Server!');
-});`, `23241992169900660000`)"
+});`, `42021188240923000000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -179,7 +179,7 @@ ws.onclose = function(evt) {
 <p>实例对象的onclose属性，用于指定连接关闭后的回调函数。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="72384726380433450000"
+              data-toaster-id="17906341089396638000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -196,7 +196,7 @@ ws.addEventListener(&quot;close&quot;, function(event) {
   var reason = event.reason;
   var wasClean = event.wasClean;
   // handle close event
-});`, `72384726380433450000`)"
+});`, `17906341089396638000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -222,7 +222,7 @@ ws.addEventListener(&quot;close&quot;, function(event) {
 <p>实例对象的onmessage属性，用于指定收到服务器数据后的回调函数。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="83907500886571470000"
+              data-toaster-id="56475518217473920000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -235,7 +235,7 @@ ws.addEventListener(&quot;close&quot;, function(event) {
 ws.addEventListener(&quot;message&quot;, function(event) {
   var data = event.data;
   // 处理数据
-});`, `83907500886571470000`)"
+});`, `56475518217473920000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -257,12 +257,12 @@ ws.addEventListener(&quot;message&quot;, function(event) {
 <p>实例对象的send()方法用于向服务器发送数据。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="16365710198950146000"
+              data-toaster-id="66516090511038685000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
-              onClick="copyToClipboard(`ws.send('your message');`, `16365710198950146000`)"
+              onClick="copyToClipboard(`ws.send('your message');`, `66516090511038685000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -276,7 +276,7 @@ ws.addEventListener(&quot;message&quot;, function(event) {
 <p>实例对象的bufferedAmount属性，表示还有多少字节的二进制数据没有发送出去。它可以用来判断发送是否结束。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="6754755153500281000"
+              data-toaster-id="99505838956985780000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -288,7 +288,7 @@ if (socket.bufferedAmount === 0) {
   // 发送完毕
 } else {
   // 发送还没结束
-}`, `6754755153500281000`)"
+}`, `99505838956985780000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -309,7 +309,7 @@ if (socket.bufferedAmount === 0) {
 <p>实例对象的onerror属性，用于指定报错时的回调函数。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="36577503618326390000"
+              data-toaster-id="54670630351576465000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -320,7 +320,7 @@ if (socket.bufferedAmount === 0) {
 
 socket.addEventListener(&quot;error&quot;, function(event) {
   // handle error event
-});`, `36577503618326390000`)"
+});`, `54670630351576465000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -350,7 +350,7 @@ socket.addEventListener(&quot;error&quot;, function(event) {
 <p><strong>HTML</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="38797571497686900000"
+              data-toaster-id="71370038576059744000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -393,7 +393,7 @@ socket.addEventListener(&quot;error&quot;, function(event) {
     car.append(\`<li>\${food}</li>\`)
   })
 </script>
-</html>`, `38797571497686900000`)"
+</html>`, `71370038576059744000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -444,7 +444,7 @@ socket.addEventListener(&quot;error&quot;, function(event) {
 <p><strong>Node.js</strong></p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="8619048114910033000"
+              data-toaster-id="37124328421522840000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -461,7 +461,7 @@ io.on('connection', (socket) => {
 
 http.listen(3000, () => {
   console.log('listening on *:3000')
-})`, `8619048114910033000`)"
+})`, `37124328421522840000`)"
             >
               <div
                 class="gatsby-code-button copyButton"

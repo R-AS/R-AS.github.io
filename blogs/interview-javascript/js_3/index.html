@@ -9,7 +9,7 @@
 <p>例如下面的例子，在第一个例子中进行变量提升，第二个例子进行函数提升。这里的“准备工作”就叫做执行上下文。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="80454496025855070000"
+              data-toaster-id="44726184078322320000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -22,7 +22,7 @@ foo() // foo1
 var foo = function() {
   console.log('foo2')
 }
-foo() // foo2`, `80454496025855070000`)"
+foo() // foo2`, `44726184078322320000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -42,7 +42,7 @@ foo() // foo2`, `80454496025855070000`)"
 <span class="grvsc-line"><span class="mtk11">foo</span><span class="mtk1">() </span><span class="mtk3">// foo2</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="81261153534521030000"
+              data-toaster-id="53540289128357640000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -55,7 +55,7 @@ foo() // foo2
 function foo() {
   console.log('foo2')
 }
-foo() // foo2`, `81261153534521030000`)"
+foo() // foo2`, `53540289128357640000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -78,12 +78,12 @@ foo() // foo2`, `81261153534521030000`)"
 <p>JS 引擎创建了执行上下文栈来管理执行上下文，我们可以把执行上下文栈定义为一个数组来模拟执行上下文栈的行为。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="29840187057193447000"
+              data-toaster-id="38093073429486290000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
-              onClick="copyToClipboard(`ECStack = []`, `29840187057193447000`)"
+              onClick="copyToClipboard(`ECStack = []`, `38093073429486290000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -96,14 +96,14 @@ foo() // foo2`, `81261153534521030000`)"
 <p>JS 开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先会向执行上下文栈压入一个全局执行上下文，并且只有当整个应用程序结束的时候，ECStack 才会被清空。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="41668521928829810000"
+              data-toaster-id="26296134841254390000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
               data-toaster-duration="5000"
               onClick="copyToClipboard(`ECStack = [
   globalContext
-]`, `41668521928829810000`)"
+]`, `26296134841254390000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -119,7 +119,7 @@ foo() // foo2`, `81261153534521030000`)"
 <p>知道了这个原理，我们来分析下以下代码是怎么处理的：</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="58640452512458780000"
+              data-toaster-id="37092011986770410000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -136,7 +136,7 @@ function fun1() {
   fun2()
 }
 
-fun1()`, `58640452512458780000`)"
+fun1()`, `37092011986770410000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -160,7 +160,7 @@ fun1()`, `58640452512458780000`)"
 <span class="grvsc-line"><span class="mtk11">fun1</span><span class="mtk1">()</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="91622747025558370000"
+              data-toaster-id="1632906196001715500"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -182,7 +182,7 @@ ECStack.pop()
 // fun1 执行完毕
 ECStack.pop()
 
-// javascript接着执行下面的代码，但是ECStack底层永远有个globalContext`, `91622747025558370000`)"
+// javascript接着执行下面的代码，但是ECStack底层永远有个globalContext`, `1632906196001715500`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -213,7 +213,7 @@ ECStack.pop()
 <h4 id="思考">思考</h4>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="86628218057726130000"
+              data-toaster-id="45338322910990295000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -236,7 +236,7 @@ function checkscope(){
     }
     return f;
 }
-checkscope()();`, `86628218057726130000`)"
+checkscope()();`, `45338322910990295000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -267,7 +267,7 @@ checkscope()();`, `86628218057726130000`)"
 <p>以上两段代码的执行结果是一样的，但是它们的执行上下文栈的变化不同。</p>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="4963984898563845000"
+              data-toaster-id="30467358127116075000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -275,7 +275,7 @@ checkscope()();`, `86628218057726130000`)"
               onClick="copyToClipboard(`ECStack.push(<checkscope> functionContext)
 ECStack.push(<f> functionContext)
 ECStack.pop()
-ECStack.pop()`, `4963984898563845000`)"
+ECStack.pop()`, `30467358127116075000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
@@ -290,7 +290,7 @@ ECStack.pop()`, `4963984898563845000`)"
 <span class="grvsc-line"><span class="mtk1">ECStack.pop()</span></span></code></pre>
 <div
               class="gatsby-code-button-container"
-              data-toaster-id="60296968146173740000"
+              data-toaster-id="60387285215358230000"
               data-toaster-class="gatsby-code-button-toaster copyToaster"
               data-toaster-text-class="gatsby-code-button-toaster-text copyToasterText"
               data-toaster-text="copy successfully!"
@@ -298,7 +298,7 @@ ECStack.pop()`, `4963984898563845000`)"
               onClick="copyToClipboard(`ECStack.push(<checkscope> functionContext)
 ECStack.pop()
 ECStack.push(<f> functionContext)
-ECStack.pop()`, `60296968146173740000`)"
+ECStack.pop()`, `60387285215358230000`)"
             >
               <div
                 class="gatsby-code-button copyButton"
