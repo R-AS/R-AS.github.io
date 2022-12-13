@@ -1,6 +1,6 @@
 ---
 title: '快速排序'
-date: '2022-12-12'
+date: '2022-12-12 16:05'
 thumbnail: 'web/index.png'
 type: 'interview-算法'
 ---

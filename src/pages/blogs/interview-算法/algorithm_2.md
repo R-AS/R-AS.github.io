@@ -1,6 +1,6 @@
 ---
 title: '二分查找'
-date: '2022-12-12'
+date: '2022-12-12 17:10'
 thumbnail: 'web/index.png'
 type: 'interview-算法'
 ---
